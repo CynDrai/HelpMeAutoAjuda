@@ -8,39 +8,53 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/txEmail_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuário:"
+        android:text="@string/usrOrEmail"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/nomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp" />
+        android:layout_below="@id/txEmail_0" />
 
     <TextView
+        android:id="@+id/txSenha_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nomeUsuario"
-        android:text="Senha::"
+        android:text="@string/senha"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/senhaUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="108dp"
-        android:inputType="textPassword"/>
+        android:layout_below="@id/txSenha_0"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="login"
-        android:text="@string/Login"
-        android:layout_below="@+id/senhaUsuario" />
+        android:onClick="loginBt"
+        android:text="@string/login"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp" />
+
+    <Button
+        android:id="@+id/btCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cadastroBt"
+        android:text="@string/cadastro"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp" />
 
 </RelativeLayout>
