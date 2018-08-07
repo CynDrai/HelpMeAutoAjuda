@@ -7,16 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    //Texto Usuario
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Usuário:"
-        android:textSize="20dp"
-        android:textColor="#00FF00"
-        android:typeface="monospace"
-        android:layout_margin="20dp" />
-
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/nomeUsuario"
@@ -29,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nomeUsuario"
-        android:text="Senha:"
+        android:text="Senha::"
         android:textSize="20dp" />
 
     <EditText
