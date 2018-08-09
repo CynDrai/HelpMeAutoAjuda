@@ -18,7 +18,38 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/email"
         android:layout_below="@+id/txEmail_1" />
+
+    <TextView
+        android:id="@+id/txnomeUsuario_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/usr"
+        android:textSize="15dp"
+        android:layout_below="@+id/email"/>
+
+    <EditText
+        android:id="@+id/nameUsr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/usr"
+        android:layout_below="@+id/txnomeUsuario_0" />
+
+    <TextView
+        android:id="@+id/txNomeFantasia_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome Fantasia(Opcional)"
+        android:textSize="15dp"
+        android:layout_below="@+id/nameUsr"/>
+
+    <EditText
+        android:id="@+id/nameFan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nomeFantasia"
+        android:layout_below="@+id/txNomeFantasia_0" />
 
     <TextView
         android:id="@+id/txSenha_1"
@@ -26,13 +57,22 @@
         android:layout_height="wrap_content"
         android:text="@string/senha"
         android:textSize="15dp"
-        android:layout_below="@+id/email" />
+        android:layout_below="@+id/nameFan" />
 
     <EditText
         android:id="@+id/senhaUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/senha"
         android:layout_below="@+id/txSenha_1"
         android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cadastroBt"
+        android:text="@string/cadastrar"
+        android:layout_below="@+id/senhaUsuario"/>
 
 </RelativeLayout>
