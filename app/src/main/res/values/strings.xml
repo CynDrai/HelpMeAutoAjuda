@@ -5,4 +5,7 @@
     <string name="usrOrEmail">Usuário ou E-Mail:</string>
     <string name="cadastro">Cadastro</string>
     <string name="email">E-Mail:</string>
+    <string name="usr">Usuário</string>
+    <string name="nomeFantasia">Nome Fantasia</string>
+    <string name="cadastrar">Cadastrar</string>
 </resources>
