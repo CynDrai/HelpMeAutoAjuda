@@ -5,56 +5,72 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg2">
 
-    <TextView
-        android:id="@+id/txEmail_0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/usrOrEmail"
-        android:textSize="20dp" />
+
+<LinearLayout
+
+    android:paddingTop="170dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginLeft="135dp"
+        android:src="@drawable/testelogo2" />
 
     <EditText
         android:id="@+id/nomeUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txEmail_0" />
-
-    <TextView
-        android:id="@+id/txSenha_0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nomeUsuario"
-        android:text="@string/senha"
-        android:textSize="20dp" />
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:hint="Usuario"
+        android:background="@drawable/edittextstyle"/>
 
     <EditText
         android:id="@+id/senhaUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txSenha_0"
-        android:inputType="textPassword" />
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:background="@drawable/edittextstyle"
+        />
 
     <Button
         android:id="@+id/btLogin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:onClick="loginBt"
         android:text="@string/login"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginLeft="70dp"
+        android:background="@drawable/buttonsstyleselector"
+        android:textColor="#ffff"
+        android:layout_marginTop="15dp"/>
 
     <Button
         android:id="@+id/btCadastro"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:onClick="cadastroBt"
         android:text="@string/cadastro"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-60dp"
+        android:background="@drawable/buttonsstyleselector"
+        android:textColor="#ffff"/>
 
+</LinearLayout>
 </RelativeLayout>
