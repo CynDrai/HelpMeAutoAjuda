@@ -1,4 +1,4 @@
-package com.example.felipesavaris.helpmeautoajuda.database;
+package com.example.felipesavaris.helpmeautoajuda.Database;
 
 public class ScriptDDL {
 
