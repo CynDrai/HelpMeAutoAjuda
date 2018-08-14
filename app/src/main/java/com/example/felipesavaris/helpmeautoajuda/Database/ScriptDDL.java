@@ -8,7 +8,7 @@ public class ScriptDDL {
         String sql = "";
 
         sql = "CREATE TABLE IF NOT EXISTS USUARIO (";
-        sql += "ID_USUARIO  INTEGER         NOT NULL,";
+        sql += "ID_USUARIO  BIGINT         NOT NULL,";
         sql += "NOME_REAL   VARCHAR(100)    NOT NULL,";
         sql += "NOME_FIC    VARCHAR(100)    NOT NULL,";
         sql += "SENHA       VARCHAR(100)    NOT NULL,";
