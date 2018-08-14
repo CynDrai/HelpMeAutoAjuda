@@ -20,15 +20,16 @@ public class RegisterDAO {
 
             //SQL responsável por fazer inserts de cadastros
             String sql = "insert into usuario(id_usuario, ";
-            sql += "nome_real, nome_fic, senha) ";
-            sql += "values(?, ?, ?, ?)";
+            sql += "email, nome_usuario, nome_fic, senha) ";
+            sql += "values(?, ?, ?, ?, ?)";
 
             SQLiteStatement stmp = conexao.compileStatement(sql);
 
-            stmp.bindLong(1, 1);
+            stmp.bindLong(1, 2);
             stmp.bindString(2, "");
             stmp.bindString(3, "");
             stmp.bindString(4, "");
+            stmp.bindString(5, "");
 
             stmp.execute();
 

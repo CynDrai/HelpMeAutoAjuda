@@ -19,12 +19,7 @@ public class ConnectionFactory {
             dbHMAAOpenHelper = new dbHMAAOpenHelper(context);
 
             conexao = dbHMAAOpenHelper.getWritableDatabase();
-
-            Toast.makeText(
-                    context,
-                    "Conexão feita com Sucesso!",
-                    Toast.LENGTH_LONG).show();
-
+            
             return conexao;
 
         } catch (SQLException ex) {

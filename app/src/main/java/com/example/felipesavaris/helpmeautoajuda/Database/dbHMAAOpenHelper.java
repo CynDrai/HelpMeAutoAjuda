@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMMA", null, 1);
+        super(context, "dbHMAA", null, 1);
     }
 
     //Responsavel por criar o Banco de Dados
