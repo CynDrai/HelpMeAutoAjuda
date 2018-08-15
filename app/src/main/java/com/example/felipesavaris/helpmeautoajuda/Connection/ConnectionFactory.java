@@ -12,8 +12,8 @@ public class ConnectionFactory {
     //Responsável de criar a conexão do Banco
     public static SQLiteDatabase criarConexao(Context context) {
 
-        dbHMAAOpenHelper dbHMAAOpenHelper;
-        SQLiteDatabase conexao;
+        final dbHMAAOpenHelper dbHMAAOpenHelper;
+        final SQLiteDatabase conexao;
 
         try {
             dbHMAAOpenHelper = new dbHMAAOpenHelper(context);

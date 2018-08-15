@@ -7,12 +7,19 @@ import android.database.sqlite.SQLiteStatement;
 import android.widget.Toast;
 
 import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
+import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
+
+import java.util.Random;
 
 public class RegisterDAO {
 
-    public static void addLogin(Context context) {
+    public static void addLogin(Context context, Usuario usuario) {
 
-        SQLiteDatabase conexao;
+        final SQLiteDatabase conexao;
+
+        Random random = new Random();
+        int i = random.nextInt(99999999);
+        usuario.setId_usuario((long) i);
 
         try {
 
@@ -25,11 +32,11 @@ public class RegisterDAO {
 
             SQLiteStatement stmp = conexao.compileStatement(sql);
 
-            stmp.bindLong(1, 2);
-            stmp.bindString(2, "");
-            stmp.bindString(3, "");
-            stmp.bindString(4, "");
-            stmp.bindString(5, "");
+            stmp.bindLong(1, usuario.getId_usuario());
+            stmp.bindString(2, usuario.getEmail());
+            stmp.bindString(3, usuario.getNameUsr());
+            stmp.bindString(4, usuario.getNameFan());
+            stmp.bindString(5, usuario.getSenhaUsuario());
 
             stmp.execute();
 

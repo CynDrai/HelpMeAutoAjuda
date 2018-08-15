@@ -1,6 +1,5 @@
 package com.example.felipesavaris.helpmeautoajuda;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +17,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
     }
 
+    //Botão responsável de fazer o cadastro de novos usuários
     public void cadastroBt(View view) {
 
         //Inicialização dos EditText
