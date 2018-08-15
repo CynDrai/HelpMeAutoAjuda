@@ -1,15 +1,15 @@
 package com.example.felipesavaris.helpmeautoajuda;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
-
-import java.sql.PreparedStatement;
+import com.example.felipesavaris.helpmeautoajuda.Database.BackupDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,15 +21,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    //Botão Login
+    //Botão Login, SERVIDO APENAS COMO BACKUP NO MOMENTO
+    @TargetApi(Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void loginBt (View view) {
 
-        this.conexao = ConnectionFactory.criarConexao(this);
-
-        conexao.close();
-
-        // Linha teste para insert, update, delete e select
-        // SQLiteStatement stmp = conexao.compileStatement("");
+        BackupDatabase.backupDatabase(this);
 
     }
 
