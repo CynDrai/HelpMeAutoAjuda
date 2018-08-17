@@ -6,6 +6,8 @@ import android.widget.Toast;
 import com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO.RegisterDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 
+import java.util.Random;
+
 public class RegisterMethods {
 
     //Método Responsável de fazer a lógica de cadastro de usuários
@@ -34,10 +36,20 @@ public class RegisterMethods {
         }
         usuario.setSenhaUsuario(senhaUsuario);
 
+        //Gerador de ID's manual para novos Registros
+        String codigo = "";
+        String[] id_ran = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
+        Random random = new Random();
+        for(int i = 0; i < 16; i++) {
+            codigo += id_ran[random.nextInt(id_ran.length)];
+        }
+
+        usuario.setId_usuario(Long.parseLong(codigo));
+
         //Resultado do sucesso do cadastro no banco
         //se - 1 == falha
         long resultDB;
-
         resultDB = RegisterDAO.addLogin(context, usuario);
 
         //Toast com o resultado do cadastro
