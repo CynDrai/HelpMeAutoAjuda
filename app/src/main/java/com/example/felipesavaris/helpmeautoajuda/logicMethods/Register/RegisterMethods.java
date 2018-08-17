@@ -34,8 +34,18 @@ public class RegisterMethods {
         }
         usuario.setSenhaUsuario(senhaUsuario);
 
+        //Resultado do sucesso do cadastro no banco
+        //se - 1 == falha
+        long resultDB;
 
-        RegisterDAO.addLogin(context, usuario);
+        resultDB = RegisterDAO.addLogin(context, usuario);
+
+        //Toast com o resultado do cadastro
+        if(resultDB == - 1) {
+            makeText(context, "Falha no cadastro no banco de dados!");
+        } else {
+            makeText(context, "Cadastro feito com sucesso");
+        }
 
     }
 

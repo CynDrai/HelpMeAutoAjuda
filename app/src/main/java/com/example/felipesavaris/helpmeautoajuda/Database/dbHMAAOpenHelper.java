@@ -13,7 +13,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(ScriptDDL.getCreateTableUsuario());
+        db.execSQL(ScriptDDL.getAllTables());
 
     }
 

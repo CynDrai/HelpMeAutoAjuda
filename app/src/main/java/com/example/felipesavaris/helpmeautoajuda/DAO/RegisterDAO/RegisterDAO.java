@@ -1,9 +1,9 @@
 package com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
 import android.widget.Toast;
 
 import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class RegisterDAO {
 
-    public static void addLogin(Context context, Usuario usuario) {
+    public static long addLogin(Context context, Usuario usuario) {
 
         final SQLiteDatabase conexao;
 
@@ -25,8 +25,24 @@ public class RegisterDAO {
 
             conexao = ConnectionFactory.criarConexao(context);
 
+            ContentValues values = new ContentValues();
+            long returnDB;
+
+            values.put("id_usuario", usuario.getId_usuario());
+            values.put("email", usuario.getEmail());
+            values.put("nome_usuario", usuario.getNameUsr());
+            values.put("nome_fic", usuario.getNameFan());
+            values.put("senha", usuario.getSenhaUsuario());
+
+            returnDB = conexao.insert(
+                    "usuario",
+                    null,
+                    values);
+
+
+
             //SQL responsável por fazer inserts de cadastros
-            String sql = "insert into usuario(id_usuario, ";
+            /*String sql = "insert into usuario(id_usuario, ";
             sql += "email, nome_usuario, nome_fic, senha) ";
             sql += "values(?, ?, ?, ?, ?)";
 
@@ -45,7 +61,9 @@ public class RegisterDAO {
             Toast.makeText(
                     context,
                     "Cadastro feito com sucesso!",
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_LONG).show();*/
+
+            return returnDB;
 
         } catch (SQLException ex) {
 
@@ -53,6 +71,8 @@ public class RegisterDAO {
                     context,
                     "Falha no cadastro do Banco - " + ex.getMessage(),
                     Toast.LENGTH_LONG).show();
+
+            return -1;
 
         }
 
