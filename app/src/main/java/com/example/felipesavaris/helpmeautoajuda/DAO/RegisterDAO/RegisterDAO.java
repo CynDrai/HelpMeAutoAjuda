@@ -34,7 +34,10 @@ public class RegisterDAO {
                     null,
                     values);
 
-            conexao.close();
+            //Fecha a conexão do banco se aberta
+            if(conexao.isOpen()) {
+                conexao.close();
+            }
 
             return returnDB;
 
@@ -48,6 +51,5 @@ public class RegisterDAO {
             return -1;
 
         }
-
     }
 }
