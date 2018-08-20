@@ -26,11 +26,12 @@
         android:src="@drawable/testelogo2" />
 
     <EditText
-        android:id="@+id/edNomeUsuario"
+        android:id="@+id/edEmailUsuario"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:hint="Usuario"
+        android:hint="E-Mail"
+        android:inputType="textEmailAddress"
         android:background="@drawable/edittextstyle"/>
 
     <EditText

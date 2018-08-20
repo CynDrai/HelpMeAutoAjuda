@@ -6,6 +6,8 @@ import android.widget.Toast;
 import com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO.RegisterDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 
+import java.util.Random;
+
 public class RegisterMethods {
 
     //Método Responsável de fazer a lógica de cadastro de usuários
@@ -25,7 +27,6 @@ public class RegisterMethods {
             return;
         }
         usuario.setNameUsr(nameUsr);
-
         usuario.setNameFan(nameFan);
 
         if(senhaUsuario.isEmpty()) {
@@ -34,10 +35,26 @@ public class RegisterMethods {
         }
         usuario.setSenhaUsuario(senhaUsuario);
 
+        //Verificador de redundâncias no banco = ID_USUARIO e E-MAIL
+        boolean result = false;
+        while(result == false) {
+            usuario.setId_usuario(GeneratorID.returnID());
+
+            byte resultTmp = RegisterDAO.vrfIdEmail(context, email, usuario.getId_usuario());
+
+            if (resultTmp == 1) continue;
+
+            if (resultTmp == 2) {
+                makeText(context, "E-mail já cadastrado!");
+                return;
+            }
+
+            result = true;
+        }
+
         //Resultado do sucesso do cadastro no banco
         //se - 1 == falha
         long resultDB;
-
         resultDB = RegisterDAO.addLogin(context, usuario);
 
         //Toast com o resultado do cadastro
@@ -49,7 +66,7 @@ public class RegisterMethods {
 
     }
 
-    public static void makeText(Context context ,String str) {
+    private static void makeText(Context context, String str) {
         Toast.makeText(
                 context,
                 str,
