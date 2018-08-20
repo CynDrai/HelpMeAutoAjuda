@@ -27,7 +27,6 @@ public class RegisterMethods {
             return;
         }
         usuario.setNameUsr(nameUsr);
-
         usuario.setNameFan(nameFan);
 
         if(senhaUsuario.isEmpty()) {
@@ -36,16 +35,22 @@ public class RegisterMethods {
         }
         usuario.setSenhaUsuario(senhaUsuario);
 
-        //Gerador de ID's manual para novos Registros
-        String codigo = "";
-        String[] id_ran = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        //Verificador de redundâncias no banco = ID_USUARIO e E-MAIL
+        boolean result = false;
+        while(result == false) {
+            usuario.setId_usuario(GeneratorID.returnID());
 
-        Random random = new Random();
-        for(int i = 0; i < 16; i++) {
-            codigo += id_ran[random.nextInt(id_ran.length)];
+            byte resultTmp = RegisterDAO.vrfIdEmail(context, email, usuario.getId_usuario());
+
+            if (resultTmp == 1) continue;
+
+            if (resultTmp == 2) {
+                makeText(context, "E-mail já cadastrado!");
+                return;
+            }
+
+            result = true;
         }
-
-        usuario.setId_usuario(Long.parseLong(codigo));
 
         //Resultado do sucesso do cadastro no banco
         //se - 1 == falha
@@ -61,7 +66,7 @@ public class RegisterMethods {
 
     }
 
-    public static void makeText(Context context ,String str) {
+    private static void makeText(Context context, String str) {
         Toast.makeText(
                 context,
                 str,

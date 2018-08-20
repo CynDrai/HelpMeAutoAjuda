@@ -14,7 +14,7 @@ import com.example.felipesavaris.helpmeautoajuda.logicMethods.Login.LoginMethods
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText edNomeUsuario, edSenhaUsuario;
+    private EditText edEmailUsuario, edSenhaUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     public void loginBt (View view) {
 
         //Inicialização dos EditText
-        this.edNomeUsuario = (EditText) findViewById(R.id.edNomeUsuario);
+        this.edEmailUsuario = (EditText) findViewById(R.id.edEmailUsuario);
         this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
-        LoginMethods.loginAccount(this, this.edNomeUsuario.getText().toString(),
+        LoginMethods.loginAccount(this, this.edEmailUsuario.getText().toString(),
                 this.edSenhaUsuario.getText().toString());
 
         //Backup Banco de Dados

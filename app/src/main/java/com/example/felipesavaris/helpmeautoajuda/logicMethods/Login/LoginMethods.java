@@ -10,15 +10,15 @@ public class LoginMethods {
 
     //Método responsavel de fazer o Login
     public static Usuario loginAccount(
-            Context context, String usuario, String senha) {
+            Context context, String email, String senha) {
 
-        if(usuario.isEmpty() || senha.isEmpty()) {
+        if(email.isEmpty() || senha.isEmpty()) {
             makeText(context,
                     "O campo usuário ou senha estão vazios!");
             return null;
         }
 
-        LoginDAO.findLogin(context, usuario, senha);
+        LoginDAO.findLogin(context, email, senha);
 
         return null;
     }
