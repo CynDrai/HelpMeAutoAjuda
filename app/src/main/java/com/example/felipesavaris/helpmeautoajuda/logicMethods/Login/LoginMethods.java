@@ -18,9 +18,7 @@ public class LoginMethods {
             return null;
         }
 
-        LoginDAO.findLogin(context, email, senha);
-
-        return null;
+        return LoginDAO.findLogin(context, email, senha);
     }
 
     public static void makeText(Context context , String str) {

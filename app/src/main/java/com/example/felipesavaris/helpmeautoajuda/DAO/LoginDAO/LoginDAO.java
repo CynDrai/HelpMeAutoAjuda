@@ -55,6 +55,7 @@ public class LoginDAO {
                         context,
                         "Dados fornecidos incorretos!",
                         Toast.LENGTH_LONG).show();
+                return null;
             } else {
                 Toast.makeText(
                         context,
@@ -68,6 +69,8 @@ public class LoginDAO {
                 conexao.close();
             }
 
+            return usrTmp;
+
         } catch (SQLException ex) {
             Toast.makeText(
                     context,
@@ -76,5 +79,6 @@ public class LoginDAO {
         }
 
         return null;
+
     }
 }
