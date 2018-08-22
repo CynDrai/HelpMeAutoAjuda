@@ -1,5 +1,6 @@
 package com.example.felipesavaris.helpmeautoajuda;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,9 @@ public class CadastroActivity extends AppCompatActivity {
         this.edNameFan = (EditText) findViewById(R.id.edNameFan);
         this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
-        RegisterMethods.addRegister(
+        boolean boo;
+
+        boo = RegisterMethods.addRegister(
                 this,
                 this.edEmail.getText().toString(),
                 this.edNameUsr.getText().toString(),
@@ -34,6 +37,14 @@ public class CadastroActivity extends AppCompatActivity {
                 this.edSenhaUsuario.getText().toString()
         );
 
+        //Mudança de Activity --> MainActivity
+        if(boo != false) {
+            Intent it = new Intent(
+                    this,
+                    MainActivity.class
+            );
+            it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(it);
+        }
     }
-
 }
