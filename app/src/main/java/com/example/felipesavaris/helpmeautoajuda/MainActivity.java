@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.felipesavaris.helpmeautoajuda.Database.BackupDatabase;
+import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 import com.example.felipesavaris.helpmeautoajuda.logicMethods.Login.LoginMethods;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,12 +32,25 @@ public class MainActivity extends AppCompatActivity {
         this.edEmailUsuario = (EditText) findViewById(R.id.edEmailUsuario);
         this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
-        LoginMethods.loginAccount(this, this.edEmailUsuario.getText().toString(),
-                this.edSenhaUsuario.getText().toString());
+        //Dados do usuário após Login bem sucedido
+        Usuario.setUsuarioUnico(LoginMethods.loginAccount(
+                this, this.edEmailUsuario.getText().toString(),
+                this.edSenhaUsuario.getText().toString()));
 
-        //Backup Banco de Dados
-        BackupDatabase.backupDatabase(this);
+        if(Usuario.getUsuarioUnico() != null) {
 
+            //Backup Banco de Dados
+            BackupDatabase.backupDatabase(this);
+
+            //Mudança de Activity --> CategoriaActivity
+            Intent it = new Intent(
+              this,
+              CategoriaActivity.class
+            );
+
+            startActivity(it);
+
+        }
     }
 
     //Botão Cadastro
@@ -45,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         //Mudança de Activity --> CadastroActivity
         Intent it = new Intent(
                 this,
-                CadastroActivity.class);
+                CadastroActivity.class
+        );
 
         startActivity(it);
     }

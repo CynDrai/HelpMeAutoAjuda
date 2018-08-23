@@ -8,6 +8,8 @@ public class Usuario {
     private String nameFan;
     private String senhaUsuario;
 
+    private static Usuario usuarioUnico;
+
     public Long getId_usuario() {
         return id_usuario;
     }
@@ -46,5 +48,14 @@ public class Usuario {
 
     public void setSenhaUsuario(String senhaUsuario) {
         this.senhaUsuario = senhaUsuario;
+    }
+
+    //Instância do Usuário
+    public static Usuario getUsuarioUnico() {
+        return usuarioUnico;
+    }
+
+    public static void setUsuarioUnico(Usuario usuarioUnico) {
+        Usuario.usuarioUnico = usuarioUnico;
     }
 }
