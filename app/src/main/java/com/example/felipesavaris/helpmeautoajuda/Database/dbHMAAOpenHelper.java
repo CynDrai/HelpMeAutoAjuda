@@ -5,8 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
+
+    private Context context;
+
+    //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 4);
+        super(context, "dbHMAA", null, 7);
+        this.context = context;
     }
 
     //Responsavel por criar o Banco de Dados
