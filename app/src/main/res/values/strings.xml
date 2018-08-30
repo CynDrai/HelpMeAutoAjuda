@@ -8,4 +8,10 @@
     <string name="usr">Usuário</string>
     <string name="nomeFantasia">Nome Fantasia</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="depressao">Depressão</string>
+    <string name="cigarro">Cigarro</string>
+    <string name="alcool">Álcool</string>
+    <string name="maconha">Maconha</string>
+    <string name="crack">Crack</string>
+    <string name="jogosAzar">Jogos de Azar</string>
 </resources>
