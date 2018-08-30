@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 1);
+        super(context, "dbHMAA", null, 4);
     }
 
     //Responsavel por criar o Banco de Dados
@@ -17,10 +17,11 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     }
 
+    //Responsável de atualizar as tabelas do Banco de Dados
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-
+        db.execSQL(ScriptDDL.getTableCategoria());
 
     }
 }
