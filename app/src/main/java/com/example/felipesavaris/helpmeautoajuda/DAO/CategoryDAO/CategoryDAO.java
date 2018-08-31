@@ -13,26 +13,29 @@ import java.util.ArrayList;
 public class CategoryDAO {
 
     //Método Responsável por adicionar as categorias estáticas
-    //ADICIONAR DADOS CONCRETOS PARA PESQUISA
     public static void addStaticCategory(Context context) {
 
+        //Lista de Categorias
         ArrayList list = vrfCategory(context);
 
-        if(!list.contains(0)) addCategoryDepressao(context);
+        //Condição para fazer INSERTS de categorias Estáticas
+        if(list.size() < 6) {
+            addCategoryDepressao(context);
 
-        if(!list.contains(1)) addCategoryCigarro(context);
+            addCategoryCigarro(context);
 
-        if(!list.contains(2)) addCategoryAlcool(context);
+            addCategoryAlcool(context);
 
-        if(!list.contains(3)) addCategoryMaconha(context);
+            addCategoryMaconha(context);
 
-        if(!list.contains(4)) addCategoryCrack(context);
+            addCategoryCrack(context);
 
-        if(!list.contains(5)) addCategoryJogosDeAzar(context);
-
+            addCategoryJogosDeAzar(context);
+        }
     }
 
-    public static void addCategoryDepressao(Context context){
+    //Categoria Depressão
+    private static void addCategoryDepressao(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -57,7 +60,8 @@ public class CategoryDAO {
         }
     }
 
-    public static void addCategoryCigarro(Context context){
+    //Categoria Cigarro
+    private static void addCategoryCigarro(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -82,7 +86,8 @@ public class CategoryDAO {
         }
     }
 
-    public static void addCategoryAlcool(Context context){
+    //Categoria Álcool
+    private static void addCategoryAlcool(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -107,7 +112,8 @@ public class CategoryDAO {
         }
     }
 
-    public static void addCategoryMaconha(Context context){
+    //Categoria Maconha
+    private static void addCategoryMaconha(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -132,7 +138,8 @@ public class CategoryDAO {
         }
     }
 
-    public static void addCategoryCrack(Context context){
+    //Categoria Crack
+    private static void addCategoryCrack(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -157,7 +164,8 @@ public class CategoryDAO {
         }
     }
 
-    public static void addCategoryJogosDeAzar(Context context){
+    //Categoria Jogos de Azar
+    private static void addCategoryJogosDeAzar(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -182,7 +190,7 @@ public class CategoryDAO {
         }
     }
 
-    public static ArrayList vrfCategory(Context context) {
+    private static ArrayList vrfCategory(Context context) {
 
         final SQLiteDatabase conexao;
         conexao = ConnectionFactory.criarConexao(context);
