@@ -56,7 +56,9 @@ public class RegisterMethods {
             makeText(context, "O campo Senha deve ter mais de 7 caracteres!");
             return false;
         }
-        usuario.setSenhaUsuario(senhaUsuario);
+
+        //Hash de senha
+        usuario.setRefSenha(senhaUsuario.hashCode());
 
         //Verificador de redundâncias no banco = ID_USUARIO e E-MAIL
         boolean result = false;
