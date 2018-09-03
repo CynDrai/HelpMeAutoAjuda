@@ -12,6 +12,7 @@ import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 
 public class RegisterDAO {
 
+    //Método Responsável por Cadastrar novos Usuários
     public static long addLogin(Context context, Usuario usuario) {
 
         final SQLiteDatabase conexao;

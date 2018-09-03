@@ -7,13 +7,26 @@ public class ScriptDDL {
 
         String sql = "";
 
-        sql = "CREATE TABLE IF NOT EXISTS USUARIO (";
-        sql += "ID_USUARIO      BIGINT          NOT NULL,";
-        sql += "EMAIL           VARCHAR(100)    NOT NULL,";
-        sql += "NOME_USUARIO    VARCHAR(100)    NOT NULL,";
-        sql += "NOME_FIC        VARCHAR(100)    ,";
-        sql += "SENHA           VARCHAR(100)    NOT NULL,";
-        sql += "CONSTRAINT      PK_LOGIN        PRIMARY KEY(ID_USUARIO)); ";
+        sql =  "CREATE TABLE IF NOT EXISTS USUARIO (";
+        sql += "ID_USUARIO          BIGINT              NOT NULL,";
+        sql += "EMAIL               VARCHAR(100)        NOT NULL,";
+        sql += "NOME_USUARIO        VARCHAR(100)        NOT NULL,";
+        sql += "NOME_FIC            VARCHAR(100)        ,";
+        sql += "SENHA               VARCHAR(100)        NOT NULL,";
+        sql += "CONSTRAINT          PK_LOGIN            PRIMARY KEY(ID_USUARIO)); ";
+
+        return sql;
+    }
+
+    //Criação da Table Categoria
+    public static String getTableCategoria() {
+
+        String sql = "";
+
+        sql =  "CREATE TABLE IF NOT EXISTS CATEGORIA (";
+        sql += "ID_CATEGORIA        INTEGER             NOT NULL,";
+        sql += "NOME_CATEGORIA      VARCHAR(50)         NOT NULL,";
+        sql += "CONSTRAINT          PK_CATEGORIA        PRIMARY KEY(ID_CATEGORIA));";
 
         return sql;
     }
@@ -23,7 +36,8 @@ public class ScriptDDL {
 
         String sql = "";
 
-        sql = getTableUsuario();
+        sql =  getTableUsuario();
+        sql += getTableCategoria();
 
         return sql;
     }

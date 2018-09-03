@@ -5,8 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
+
+    private Context context;
+
+    //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 1);
+        super(context, "dbHMAA", null, 13);
     }
 
     //Responsavel por criar o Banco de Dados
@@ -17,10 +21,15 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     }
 
+    //Responsável de atualizar as tabelas do Banco de Dados
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-
-
+        if(oldVersion < 5) {
+            db.execSQL(ScriptDDL.getAllTables());
+        } else {
+            db.execSQL("drop table categoria");
+            db.execSQL(ScriptDDL.getTableCategoria());
+        }
     }
 }
