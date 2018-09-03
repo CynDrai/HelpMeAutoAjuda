@@ -13,6 +13,9 @@ public class LoginDAO {
 
     public static Usuario findLogin(Context context, String email, String senha) {
 
+        //Hash da Senha
+        int refSenha = senha.hashCode();
+
         try {
             final SQLiteDatabase conexao;
             conexao = ConnectionFactory.criarConexao(context);
@@ -22,9 +25,9 @@ public class LoginDAO {
                     "email",
                     "nome_usuario",
                     "nome_fic",
-                    "senha"};
+                    "refsenha"};
 
-            String where = "email = '" + email + "' and senha = '" + senha + "'";
+            String where = "email = '" + email + "' and refsenha = '" + refSenha + "'";
 
             Cursor cursor = conexao.query(
                     "usuario",
@@ -45,7 +48,7 @@ public class LoginDAO {
                 usrTmp.setEmail(cursor.getString(1));
                 usrTmp.setNameUsr(cursor.getString(2));
                 usrTmp.setNameFan(cursor.getString(3));
-                usrTmp.setSenhaUsuario(cursor.getString(4));
+                usrTmp.setRefSenha(cursor.getInt(4));
             }
 
             //Toast para mostrar dados pegos do banco
@@ -64,6 +67,7 @@ public class LoginDAO {
                                 "Nome Fantasia: " + usrTmp.getNameFan(),
                         Toast.LENGTH_LONG).show();
             }
+
             //Fecha a conexão do banco se aberta
             if (conexao.isOpen()) {
                 conexao.close();

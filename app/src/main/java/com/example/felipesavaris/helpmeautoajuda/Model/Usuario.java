@@ -6,9 +6,11 @@ public class Usuario {
     private String email;
     private String nameUsr;
     private String nameFan;
-    private String senhaUsuario;
+    private Integer refSenha;
 
+    //Instância do Usuário
     private static Usuario usuarioUnico;
+
 
     public Long getId_usuario() {
         return id_usuario;
@@ -42,12 +44,12 @@ public class Usuario {
         this.nameFan = nameFan;
     }
 
-    public String getSenhaUsuario() {
-        return senhaUsuario;
+    public Integer getRefSenha() {
+        return refSenha;
     }
 
-    public void setSenhaUsuario(String senhaUsuario) {
-        this.senhaUsuario = senhaUsuario;
+    public void setRefSenha(Integer refSenha) {
+        this.refSenha = refSenha;
     }
 
     //Instância do Usuário

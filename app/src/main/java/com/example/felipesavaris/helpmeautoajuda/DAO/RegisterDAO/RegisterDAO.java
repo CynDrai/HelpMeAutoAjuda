@@ -29,7 +29,7 @@ public class RegisterDAO {
             values.put("email", usuario.getEmail());
             values.put("nome_usuario", usuario.getNameUsr());
             values.put("nome_fic", usuario.getNameFan());
-            values.put("senha", usuario.getSenhaUsuario());
+            values.put("refsenha", usuario.getRefSenha());
 
             returnDB = conexao.insert(
                     "usuario",
