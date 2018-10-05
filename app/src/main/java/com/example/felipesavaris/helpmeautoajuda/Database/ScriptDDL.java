@@ -12,7 +12,7 @@ public class ScriptDDL {
         sql += "EMAIL               VARCHAR(100)        NOT NULL,";
         sql += "NOME_USUARIO        VARCHAR(100)        NOT NULL,";
         sql += "NOME_FIC            VARCHAR(100)        ,";
-        sql += "REFSENHA            INTEGER             NOT NULL,";
+        sql += "REFSENHA            VARCHAR(200)        NOT NULL,";
         sql += "CONSTRAINT          PK_LOGIN            PRIMARY KEY(ID_USUARIO)); ";
 
         return sql;
