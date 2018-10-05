@@ -6,7 +6,8 @@ public class Usuario {
     private String email;
     private String nameUsr;
     private String nameFan;
-    private Integer refSenha;
+    private String refSenha;
+
 
     //Instância do Usuário
     private static Usuario usuarioUnico;
@@ -44,11 +45,11 @@ public class Usuario {
         this.nameFan = nameFan;
     }
 
-    public Integer getRefSenha() {
+    public String getRefSenha() {
         return refSenha;
     }
 
-    public void setRefSenha(Integer refSenha) {
+    public void setRefSenha(String refSenha) {
         this.refSenha = refSenha;
     }
 

@@ -10,7 +10,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 14);
+        super(context, "dbHMAA", null, 17);
     }
 
     //Responsavel por criar o Banco de Dados
@@ -35,6 +35,16 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
         }
 
         if(oldVersion < 14) {
+            db.execSQL("drop table usuario");
+            db.execSQL(ScriptDDL.getTableUsuario());
+        }
+
+        if(newVersion == 16) {
+            db.execSQL("drop table usuario");
+            db.execSQL(ScriptDDL.getTableUsuario());
+        }
+
+        if(newVersion == 17) {
             db.execSQL("drop table usuario");
             db.execSQL(ScriptDDL.getTableUsuario());
         }

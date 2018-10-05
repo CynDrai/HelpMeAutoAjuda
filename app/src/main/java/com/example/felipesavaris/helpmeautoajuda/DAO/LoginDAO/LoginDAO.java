@@ -9,12 +9,11 @@ import android.widget.Toast;
 import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class LoginDAO {
 
     public static Usuario findLogin(Context context, String email, String senha) {
-
-        //Hash da Senha
-        int refSenha = senha.hashCode();
 
         try {
             final SQLiteDatabase conexao;
@@ -27,7 +26,8 @@ public class LoginDAO {
                     "nome_fic",
                     "refsenha"};
 
-            String where = "email = '" + email + "' and refsenha = '" + refSenha + "'";
+
+            String where = "email = '" + email + "'";
 
             Cursor cursor = conexao.query(
                     "usuario",
@@ -48,7 +48,11 @@ public class LoginDAO {
                 usrTmp.setEmail(cursor.getString(1));
                 usrTmp.setNameUsr(cursor.getString(2));
                 usrTmp.setNameFan(cursor.getString(3));
-                usrTmp.setRefSenha(cursor.getInt(4));
+                usrTmp.setRefSenha(cursor.getString(4));
+
+                if(!BCrypt.checkpw(senha, usrTmp.getRefSenha())) {
+                    usrTmp.setEmail(null);
+                }
             }
 
             //Toast para mostrar dados pegos do banco
@@ -59,13 +63,6 @@ public class LoginDAO {
                         "Dados fornecidos incorretos!",
                         Toast.LENGTH_LONG).show();
                 return null;
-            } else {
-                Toast.makeText(
-                        context,
-                        "E-Mail: " + usrTmp.getEmail() + "\n" +
-                                "Nome Real: " + usrTmp.getNameUsr() + "\n" +
-                                "Nome Fantasia: " + usrTmp.getNameFan(),
-                        Toast.LENGTH_LONG).show();
             }
 
             //Fecha a conexão do banco se aberta
