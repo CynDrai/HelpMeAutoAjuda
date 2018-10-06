@@ -4,3 +4,9 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 12-13 - Drop Tabela Categoria, Create Table Categoria;
 
 14 - Drop column SENHA, Add Column REFSENHA;
+
+15 - Alteração da coluna REFSENHA de INTEGER para VARCHAR(200);
+
+16 - Correção NewVerison no onUpgrade em relação ao 15;
+
+17 - Limpeza de Database para Testes

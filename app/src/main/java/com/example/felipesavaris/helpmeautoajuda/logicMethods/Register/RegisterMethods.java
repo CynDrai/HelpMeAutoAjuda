@@ -6,6 +6,8 @@ import android.widget.Toast;
 import com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO.RegisterDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.util.Random;
 
 public class RegisterMethods {
@@ -58,7 +60,8 @@ public class RegisterMethods {
         }
 
         //Hash de senha
-        usuario.setRefSenha(senhaUsuario.hashCode());
+        senhaUsuario = BCrypt.hashpw(senhaUsuario, BCrypt.gensalt(5));
+        usuario.setRefSenha(senhaUsuario);
 
         //Verificador de redundâncias no banco = ID_USUARIO e E-MAIL
         boolean result = false;
