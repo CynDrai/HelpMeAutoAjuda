@@ -1,4 +1,4 @@
-package com.example.felipesavaris.helpmeautoajuda.logicMethods.Register;
+package com.example.felipesavaris.helpmeautoajuda.Util;
 
 import java.util.Random;
 

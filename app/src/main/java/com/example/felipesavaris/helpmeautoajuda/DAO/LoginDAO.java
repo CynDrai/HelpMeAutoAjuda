@@ -1,4 +1,4 @@
-package com.example.felipesavaris.helpmeautoajuda.DAO.LoginDAO;
+package com.example.felipesavaris.helpmeautoajuda.DAO;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -44,15 +44,18 @@ public class LoginDAO {
 
             while (cursor.moveToNext()) {
 
-                usrTmp.setId_usuario(cursor.getLong(0));
-                usrTmp.setEmail(cursor.getString(1));
-                usrTmp.setNameUsr(cursor.getString(2));
-                usrTmp.setNameFan(cursor.getString(3));
+                //Comparador de Hash, se diferente, o usuário não será logado
                 usrTmp.setRefSenha(cursor.getString(4));
 
                 if(!BCrypt.checkpw(senha, usrTmp.getRefSenha())) {
                     usrTmp.setEmail(null);
                 }
+
+                usrTmp.setId_usuario(cursor.getLong(0));
+                usrTmp.setEmail(cursor.getString(1));
+                usrTmp.setNameUsr(cursor.getString(2));
+                usrTmp.setNameFan(cursor.getString(3));
+
             }
 
             //Toast para mostrar dados pegos do banco

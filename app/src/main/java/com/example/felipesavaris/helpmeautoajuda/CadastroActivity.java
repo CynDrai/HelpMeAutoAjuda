@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.felipesavaris.helpmeautoajuda.logicMethods.Register.RegisterMethods;
+import com.example.felipesavaris.helpmeautoajuda.logicMethods.RegisterMethods;
 
 public class CadastroActivity extends AppCompatActivity {
 

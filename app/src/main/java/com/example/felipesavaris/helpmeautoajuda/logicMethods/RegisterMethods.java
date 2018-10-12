@@ -1,14 +1,13 @@
-package com.example.felipesavaris.helpmeautoajuda.logicMethods.Register;
+package com.example.felipesavaris.helpmeautoajuda.logicMethods;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO.RegisterDAO;
+import com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
+import com.example.felipesavaris.helpmeautoajuda.Util.GeneratorID;
 
 import org.mindrot.jbcrypt.BCrypt;
-
-import java.util.Random;
 
 public class RegisterMethods {
 

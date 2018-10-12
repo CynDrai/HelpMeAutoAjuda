@@ -1,4 +1,4 @@
-package com.example.felipesavaris.helpmeautoajuda.Database;
+package com.example.felipesavaris.helpmeautoajuda.Util;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -15,7 +15,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 
 public class BackupDatabase {
 

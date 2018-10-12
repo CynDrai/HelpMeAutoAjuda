@@ -1,4 +1,4 @@
-package com.example.felipesavaris.helpmeautoajuda.DAO.RegisterDAO;
+package com.example.felipesavaris.helpmeautoajuda.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;

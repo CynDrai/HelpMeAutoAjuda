@@ -1,9 +1,9 @@
-package com.example.felipesavaris.helpmeautoajuda.logicMethods.Login;
+package com.example.felipesavaris.helpmeautoajuda.logicMethods;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.felipesavaris.helpmeautoajuda.DAO.LoginDAO.LoginDAO;
+import com.example.felipesavaris.helpmeautoajuda.DAO.LoginDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 
 public class LoginMethods {
@@ -21,7 +21,7 @@ public class LoginMethods {
         return LoginDAO.findLogin(context, email, senha);
     }
 
-    public static void makeText(Context context , String str) {
+    private static void makeText(Context context, String str) {
         Toast.makeText(
                 context,
                 str,
