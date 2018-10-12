@@ -9,10 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.felipesavaris.helpmeautoajuda.DAO.CategoryDAO.CategoryDAO;
-import com.example.felipesavaris.helpmeautoajuda.Database.BackupDatabase;
+import com.example.felipesavaris.helpmeautoajuda.Util.BackupDatabase;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
-import com.example.felipesavaris.helpmeautoajuda.logicMethods.Login.LoginMethods;
+import com.example.felipesavaris.helpmeautoajuda.logicMethods.LoginMethods;
 
 public class MainActivity extends AppCompatActivity {
 
