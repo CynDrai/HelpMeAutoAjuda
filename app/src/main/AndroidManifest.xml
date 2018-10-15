@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CadastroActivity" />
-        <activity android:name=".CategoriaActivity"></activity>
+        <activity android:name=".CategoriaActivity" />
+        <activity android:name=".selectedCategoriaActivity"></activity>
     </application>
 
 </manifest>
