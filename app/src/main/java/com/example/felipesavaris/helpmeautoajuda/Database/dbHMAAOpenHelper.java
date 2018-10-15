@@ -23,7 +23,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     //Responsável de atualizar as tabelas do Banco de Dados
     @Override
-    public  void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         if(oldVersion < 5) {
             db.execSQL(ScriptDDL.getAllTables());

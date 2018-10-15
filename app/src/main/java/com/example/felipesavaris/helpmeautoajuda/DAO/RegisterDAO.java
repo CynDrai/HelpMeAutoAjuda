@@ -5,15 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
-import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
+import com.example.felipesavaris.helpmeautoajuda.Util.ConnectionFactory;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
+import com.example.felipesavaris.helpmeautoajuda.Util.ToastMakeText;
 
 public class RegisterDAO {
 
     //Método Responsável por Cadastrar novos Usuários
-    public static long addLogin(Context context, Usuario usuario) {
+    public long addLogin(Context context, Usuario usuario) {
 
         final SQLiteDatabase conexao;
 
@@ -45,10 +45,10 @@ public class RegisterDAO {
 
         } catch (SQLException ex) {
 
-            Toast.makeText(
+            ToastMakeText.makeText(
                     context,
-                    "Falha no cadastro do Banco - " + ex.getMessage(),
-                    Toast.LENGTH_LONG).show();
+                    "Falha no cadastro do Banco - " + ex.getMessage()
+            );
 
             return -1;
 
@@ -57,7 +57,7 @@ public class RegisterDAO {
 
     //Método responsável de verificar dados redundantes no banco
     //Números de problemas = 1 - ID repetido, 2 - E-mail já cadastrado
-    public static byte vrfIdEmail(Context context, String email, long id) {
+    public byte vrfIdEmail(Context context, String email, long id) {
 
         try {
 
@@ -103,10 +103,11 @@ public class RegisterDAO {
             }
 
         } catch(SQLException ex) {
-            Toast.makeText(
+
+            ToastMakeText.makeText(
                     context,
-                    "Houve um erro no banco de dados! - " + ex.getMessage(),
-                    Toast.LENGTH_LONG).show();
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
         }
         return 0;
     }

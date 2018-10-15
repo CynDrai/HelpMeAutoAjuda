@@ -15,7 +15,8 @@ public class CategoriaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categoria);
 
         //Verificador de Categorias Estáticas
-        CategoryDAO.addStaticCategory(this);
+        CategoryDAO dao = new CategoryDAO();
+        dao.addStaticCategory(this);
 
     }
 

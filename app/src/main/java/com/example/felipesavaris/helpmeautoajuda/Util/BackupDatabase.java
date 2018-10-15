@@ -6,7 +6,6 @@ import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.RequiresApi;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -55,18 +54,18 @@ public class BackupDatabase {
             in.close();
             out.close();
 
-            Toast.makeText(
+            ToastMakeText.makeText(
                     context,
-                    "Backup Realizado com sucesso",
-                    Toast.LENGTH_LONG).show();
+                    "Backup Realizado com sucesso"
+            );
 
         } catch (FileNotFoundException e) {
 
-            Toast.makeText(
+            ToastMakeText.makeText(
                     context,
                     "Falha no Backup, é necessario permissão ou " +
-                            "diretório não encontrado!",
-                    Toast.LENGTH_LONG).show();
+                            "diretório não encontrado!"
+            );
 
             e.printStackTrace();
         } catch (IOException e) {
