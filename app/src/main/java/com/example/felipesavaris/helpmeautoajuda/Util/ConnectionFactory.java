@@ -1,9 +1,8 @@
-package com.example.felipesavaris.helpmeautoajuda.Connection;
+package com.example.felipesavaris.helpmeautoajuda.Util;
 
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
 import com.example.felipesavaris.helpmeautoajuda.Database.dbHMAAOpenHelper;
 
@@ -24,10 +23,10 @@ public class ConnectionFactory {
 
         } catch (SQLException ex) {
 
-            Toast.makeText(
+            ToastMakeText.makeText(
                     context,
-                    "Falha na Conexão do Banco : " + ex.getMessage(),
-                    Toast.LENGTH_LONG).show();
+                    "Falha na Conexão do Banco : " + ex.getMessage()
+            );
 
             throw new RuntimeException(ex);
         }

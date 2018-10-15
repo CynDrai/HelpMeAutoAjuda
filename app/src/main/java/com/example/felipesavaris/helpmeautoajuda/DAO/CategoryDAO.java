@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
+import com.example.felipesavaris.helpmeautoajuda.Util.ConnectionFactory;
 import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CategoryDAO {
 
     //Método Responsável por adicionar as categorias estáticas
-    public static void addStaticCategory(Context context) {
+    public void addStaticCategory(Context context) {
 
         //Lista de Categorias
         ArrayList list = vrfCategory(context);
@@ -35,7 +35,7 @@ public class CategoryDAO {
     }
 
     //Categoria Depressão
-    private static void addCategoryDepressao(Context context){
+    private void addCategoryDepressao(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -61,7 +61,7 @@ public class CategoryDAO {
     }
 
     //Categoria Cigarro
-    private static void addCategoryCigarro(Context context){
+    private void addCategoryCigarro(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -87,7 +87,7 @@ public class CategoryDAO {
     }
 
     //Categoria Álcool
-    private static void addCategoryAlcool(Context context){
+    private void addCategoryAlcool(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -113,7 +113,7 @@ public class CategoryDAO {
     }
 
     //Categoria Maconha
-    private static void addCategoryMaconha(Context context){
+    private void addCategoryMaconha(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -139,7 +139,7 @@ public class CategoryDAO {
     }
 
     //Categoria Crack
-    private static void addCategoryCrack(Context context){
+    private void addCategoryCrack(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -165,7 +165,7 @@ public class CategoryDAO {
     }
 
     //Categoria Jogos de Azar
-    private static void addCategoryJogosDeAzar(Context context){
+    private void addCategoryJogosDeAzar(Context context){
 
         final SQLiteDatabase conexao;
 
@@ -190,7 +190,7 @@ public class CategoryDAO {
         }
     }
 
-    private static ArrayList vrfCategory(Context context) {
+    private ArrayList vrfCategory(Context context) {
 
         final SQLiteDatabase conexao;
         conexao = ConnectionFactory.criarConexao(context);

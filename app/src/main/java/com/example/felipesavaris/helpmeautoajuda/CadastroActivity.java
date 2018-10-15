@@ -28,7 +28,6 @@ public class CadastroActivity extends AppCompatActivity {
         this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
         boolean boo;
-
         boo = RegisterMethods.addRegister(
                 this,
                 this.edEmail.getText().toString(),

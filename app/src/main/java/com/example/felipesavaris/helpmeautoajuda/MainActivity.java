@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         //Dados do usuário após Login bem sucedido
         Usuario.setUsuarioUnico(LoginMethods.loginAccount(
                 this, this.edEmailUsuario.getText().toString(),
-                this.edSenhaUsuario.getText().toString()));
+                this.edSenhaUsuario.getText().toString())
+        );
 
         if(Usuario.getUsuarioUnico() != null) {
 

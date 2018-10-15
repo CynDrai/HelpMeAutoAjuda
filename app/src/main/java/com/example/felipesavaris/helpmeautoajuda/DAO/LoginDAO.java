@@ -4,16 +4,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
-import com.example.felipesavaris.helpmeautoajuda.Connection.ConnectionFactory;
+import com.example.felipesavaris.helpmeautoajuda.Util.ConnectionFactory;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
+import com.example.felipesavaris.helpmeautoajuda.Util.ToastMakeText;
 
 import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginDAO {
 
-    public static Usuario findLogin(Context context, String email, String senha) {
+    public Usuario findLogin(Context context, String email, String senha) {
 
         try {
             final SQLiteDatabase conexao;
@@ -49,6 +49,7 @@ public class LoginDAO {
 
                 if(!BCrypt.checkpw(senha, usrTmp.getRefSenha())) {
                     usrTmp.setEmail(null);
+                    break;
                 }
 
                 usrTmp.setId_usuario(cursor.getLong(0));
@@ -58,13 +59,12 @@ public class LoginDAO {
 
             }
 
-            //Toast para mostrar dados pegos do banco
-            //Método será retirado quando a activity categorias for lançada
+            //Return caso usuário não autenticado
             if(usrTmp.getEmail() == null) {
-                Toast.makeText(
+                ToastMakeText.makeText(
                         context,
-                        "Dados fornecidos incorretos!",
-                        Toast.LENGTH_LONG).show();
+                        "Dados fornecidos incorretos!"
+                );
                 return null;
             }
 
@@ -73,13 +73,14 @@ public class LoginDAO {
                 conexao.close();
             }
 
+            //Return da Instância
             return usrTmp;
 
         } catch (SQLException ex) {
-            Toast.makeText(
+            ToastMakeText.makeText(
                     context,
-                    "Houve um erro no banco de dados! - " + ex.getMessage(),
-                    Toast.LENGTH_LONG).show();
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
         }
 
         return null;
