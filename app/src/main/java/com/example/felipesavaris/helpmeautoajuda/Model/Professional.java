@@ -6,8 +6,8 @@ public class Professional {
     private String email;
     private String name;
     private String ficName;
-    private long cpf;
-    private long cnpj;
+    private String cpf;
+    private String cnpj;
     private String address;
     private long fone;
 
