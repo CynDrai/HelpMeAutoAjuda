@@ -43,19 +43,19 @@ public class Professional {
         this.ficName = ficName;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
