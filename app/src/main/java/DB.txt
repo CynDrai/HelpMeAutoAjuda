@@ -9,4 +9,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 16 - Correção NewVerison no onUpgrade em relação ao 15;
 
-17 - Limpeza de Database para Testes
+17 - Limpeza de Database para Testes;
+
+18 - Criação da Tabela Professional.
