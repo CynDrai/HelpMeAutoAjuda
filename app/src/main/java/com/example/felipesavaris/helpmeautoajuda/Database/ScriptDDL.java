@@ -3,7 +3,7 @@ package com.example.felipesavaris.helpmeautoajuda.Database;
 public class ScriptDDL {
 
     //Criação da Table Usuário
-    public static String getTableUsuario() {
+    protected String getTableUsuario() {
 
         String sql = "";
 
@@ -18,8 +18,27 @@ public class ScriptDDL {
         return sql;
     }
 
+    //Criação da Table Professional
+    protected String getTableProfessional() {
+
+        String sql;
+
+        sql =  "CREATE TABLE IF NOT EXISTS PROFESSIONAL (";
+        sql += "ID_PROFESSIONAL     BIGINT              NOT NULL,";
+        sql += "EMAIL               VARCHAR(100)        NOT NULL,";
+        sql += "NAME                VARCHAR(100)        NOT NULL,";
+        sql += "FICNAME             VARCHAR(150)        ,";
+        sql += "CPF                 VARCHAR(14)         NOT NULL,";
+        sql += "CNPJ                VARCHAR(18)         ,";
+        sql += "ADDRESS             VARCHAR(100)        NOT NULL,";
+        sql += "FONE                BIGINT              NOT NULL,";
+        sql += "CONSTRAINT          PK_PROFESSIONAL     PRIMARY KEY(ID_PROFESSIONAL)); ";
+
+        return sql;
+    }
+
     //Criação da Table Categoria
-    public static String getTableCategoria() {
+    protected String getTableCategoria() {
 
         String sql = "";
 
@@ -32,12 +51,13 @@ public class ScriptDDL {
     }
 
     //Método responsavel de retornar todas as tabelas
-    public static String getAllTables() {
+    protected String getAllTables() {
 
         String sql = "";
 
         sql =  getTableUsuario();
         sql += getTableCategoria();
+        sql += getTableProfessional();
 
         return sql;
     }

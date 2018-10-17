@@ -6,18 +6,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
-    private Context context;
-
     //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 17);
+        super(context, "dbHMAA", null, 18);
     }
 
     //Responsavel por criar o Banco de Dados
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(ScriptDDL.getAllTables());
+        ScriptDDL ddl = new ScriptDDL();
+        db.execSQL(ddl.getAllTables());
 
     }
 
@@ -25,28 +24,34 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+        ScriptDDL ddl = new ScriptDDL();
+
         if(oldVersion < 5) {
-            db.execSQL(ScriptDDL.getAllTables());
+            db.execSQL(ddl.getAllTables());
         }
 
         if(oldVersion < 13) {
             db.execSQL("drop table categoria");
-            db.execSQL(ScriptDDL.getTableCategoria());
+            db.execSQL(ddl.getTableCategoria());
         }
 
         if(oldVersion < 14) {
             db.execSQL("drop table usuario");
-            db.execSQL(ScriptDDL.getTableUsuario());
+            db.execSQL(ddl.getTableUsuario());
         }
 
         if(newVersion == 16) {
             db.execSQL("drop table usuario");
-            db.execSQL(ScriptDDL.getTableUsuario());
+            db.execSQL(ddl.getTableUsuario());
         }
 
         if(newVersion == 17) {
             db.execSQL("drop table usuario");
-            db.execSQL(ScriptDDL.getTableUsuario());
+            db.execSQL(ddl.getTableUsuario());
+        }
+
+        if(newVersion > 17) {
+            db.execSQL(ddl.getTableProfessional());
         }
     }
 }
