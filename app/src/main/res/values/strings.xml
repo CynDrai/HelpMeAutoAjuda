@@ -16,4 +16,6 @@
     <string name="jogosAzar">Jogos de Azar</string>
     <string name="relato">Relato</string>
     <string name="ajuda">Ajuda</string>
+    <string name="category">Categorias</string>
+    <string name="cadastroCategory">Categorias Cadastradas</string>
 </resources>
