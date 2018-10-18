@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroProfessionalActivity">
+
+    <EditText
+        android:id="@+id/edEmailProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"/>
+
+    <EditText
+        android:id="@+id/edNameProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nameProfessional"
+        android:layout_below="@+id/edEmailProfessional"/>
+
+    <EditText
+        android:id="@+id/edFicNameProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nomeFantasia"
+        android:layout_below="@+id/edNameProfessional"/>
+
+    <EditText
+        android:id="@+id/cpfProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cpf"
+        android:layout_below="@+id/edFicNameProfessional"/>
+
+    <EditText
+        android:id="@+id/cnpjCompany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/cnpj"
+        android:layout_below="@+id/cpfProfessional"/>
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:layout_below="@+id/cnpjCompany"/>
+
+    <EditText
+        android:id="@+id/fone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fone"
+        android:layout_below="@+id/address"/>
+
+    <EditText
+        android:id="@+id/passwordProfessional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        android:layout_below="@+id/fone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/cadastrar" />
+
+</RelativeLayout>
