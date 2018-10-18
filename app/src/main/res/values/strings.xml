@@ -23,4 +23,7 @@
     <string name="cnpj">CNPJ</string>
     <string name="address">Endereço</string>
     <string name="fone">Telefone</string>
+    <string name="txCadastroSerial">Cadastro Profissional</string>
+    <string name="serial">Serial</string>
+    <string name="enterSerial">Entrar código serial</string>
 </resources>
