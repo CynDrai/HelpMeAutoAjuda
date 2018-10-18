@@ -32,6 +32,7 @@ public class ScriptDDL {
         sql += "CNPJ                VARCHAR(18)         ,";
         sql += "ADDRESS             VARCHAR(100)        NOT NULL,";
         sql += "FONE                BIGINT              NOT NULL,";
+        sql += "REFSENHA            VARCHAR(200)        NOT NULL,";
         sql += "CONSTRAINT          PK_PROFESSIONAL     PRIMARY KEY(ID_PROFESSIONAL)); ";
 
         return sql;
@@ -45,7 +46,7 @@ public class ScriptDDL {
         sql =  "CREATE TABLE IF NOT EXISTS CATEGORIA (";
         sql += "ID_CATEGORIA        INTEGER             NOT NULL,";
         sql += "NOME_CATEGORIA      VARCHAR(50)         NOT NULL,";
-        sql += "CONSTRAINT          PK_CATEGORIA        PRIMARY KEY(ID_CATEGORIA));";
+        sql += "CONSTRAINT          PK_CATEGORIA        PRIMARY KEY(ID_CATEGORIA)); ";
 
         return sql;
     }

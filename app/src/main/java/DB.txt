@@ -11,4 +11,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 17 - Limpeza de Database para Testes;
 
-18 - Criação da Tabela Professional.
+18 - Criação da Tabela Professional;
+
+19 - Alter Table, criação da coluna RefSenha para profissionais.
