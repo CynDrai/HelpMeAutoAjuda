@@ -2,6 +2,7 @@ package com.example.felipesavaris.helpmeautoajuda.Database;
 
 public class ScriptDDL {
 
+    //Criação da Table Serial
     protected String getTableSerial() {
 
         String sql;

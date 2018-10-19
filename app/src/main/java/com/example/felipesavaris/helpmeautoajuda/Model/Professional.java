@@ -10,6 +10,10 @@ public class Professional {
     private String cnpj;
     private String address;
     private long fone;
+    private String refSenha;
+
+    //Instância do Profissional
+    private static Professional professionalUnico;
 
     public long getId_professional() {
         return id_professional;
@@ -73,5 +77,22 @@ public class Professional {
 
     public void setFone(long fone) {
         this.fone = fone;
+    }
+
+    public String getRefSenha() {
+        return refSenha;
+    }
+
+    public void setRefSenha(String refSenha) {
+        this.refSenha = refSenha;
+    }
+
+    //Instância do Usuário
+    public static Professional getProfessionalUnico() {
+        return professionalUnico;
+    }
+
+    public static void setProfessionalUnico(Professional professionalUnico) {
+        Professional.professionalUnico = professionalUnico;
     }
 }
