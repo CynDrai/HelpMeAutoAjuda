@@ -14,3 +14,5 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 18 - Criação da Tabela Professional;
 
 19 - Alter Table, criação da coluna RefSenha para profissionais.
+
+20 - Drop table e Create table Professional

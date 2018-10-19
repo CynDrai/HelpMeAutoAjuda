@@ -1,10 +1,12 @@
 package com.example.felipesavaris.helpmeautoajuda;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -18,19 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText edEmailUsuario, edSenhaUsuario;
 
-    public static final int REQUEST_PERMISSIONS_CODE = 128;
+    public final int REQUEST_PERMISSIONS_CODE = 128;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Requisição de Permissão
-        PermissionUtil.callWriteOnSDCard(
-                this,
-                this,
-                REQUEST_PERMISSIONS_CODE
-        );
     }
 
     //Botão Login
@@ -50,8 +45,25 @@ public class MainActivity extends AppCompatActivity {
 
         if (Usuario.getUsuarioUnico() != null) {
 
-            //Backup Banco de Dados
-            BackupDatabase.backupDatabase(this);
+            //Checa se o sistema já tem a permissão
+            int permission = ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            );
+
+            //Se não houver a permissão
+            if(permission == -1) {
+                PermissionUtil.callWriteOnSDCard(
+                        this,
+                        REQUEST_PERMISSIONS_CODE
+                );
+            }
+
+            //Se houver a permissão, o backup será realizado
+            if(permission == 0) {
+                //Backup Banco de Dados
+                BackupDatabase.backupDatabase(this);
+            }
 
             //Mudança de Activity --> CategoriaActivity
             Intent it = new Intent(
