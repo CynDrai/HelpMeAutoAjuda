@@ -2,6 +2,17 @@ package com.example.felipesavaris.helpmeautoajuda.Database;
 
 public class ScriptDDL {
 
+    protected String getTableSerial() {
+
+        String sql;
+
+        sql =  "CREATE TABLE IF NOT EXISTS SERIAL(";
+        sql += "SERIAL              VARCHAR(11)         NOT NULL,";
+        sql += "CONSTRAINT          PK_SERIAL           PRIMARY KEY(SERIAL)); ";
+
+        return sql;
+    }
+
     //Criação da Table Usuário
     protected String getTableUsuario() {
 
@@ -56,7 +67,8 @@ public class ScriptDDL {
 
         String sql = "";
 
-        sql =  getTableUsuario();
+        sql =  getTableSerial();
+        sql += getTableUsuario();
         sql += getTableCategoria();
         sql += getTableProfessional();
 
