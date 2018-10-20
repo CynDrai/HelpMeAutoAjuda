@@ -159,15 +159,19 @@ public class RegisterMethods {
             );
             return false;
         }
-        if(email.contains("@")) {
-            if(!email.contains(".com")) {
-                ToastMakeText.makeText(
-                        context,
-                        "Insira um E-Mail válido!"
-                );
-
-                return false;
-            }
+        if(!email.contains("@")) {
+            ToastMakeText.makeText(
+                    context,
+                    "Insira um E-Mail válido!"
+            );
+            return false;
+        }
+        if(!email.contains(".com")) {
+            ToastMakeText.makeText(
+                    context,
+                    "Insira um E-Mail válido!"
+            );
+            return false;
         }
         professional.setEmail(email);
 

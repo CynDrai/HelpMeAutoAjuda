@@ -62,18 +62,4 @@ public class ScriptDDL {
 
         return sql;
     }
-
-    //Método responsavel de retornar todas as tabelas
-    protected String getAllTables() {
-
-        String sql = "";
-
-        sql =  getTableSerial();
-        sql += getTableUsuario();
-        sql += getTableCategoria();
-        sql += getTableProfessional();
-
-        return sql;
-    }
-
 }

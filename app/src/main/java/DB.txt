@@ -17,4 +17,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 20 - Drop table e Create table Professional;
 
-21 - Create table Serial.
+21 - Create table Serial;
+
+22-23-24 - Reset Database, Create Table Usuario, Professional, Categoria, Serial.

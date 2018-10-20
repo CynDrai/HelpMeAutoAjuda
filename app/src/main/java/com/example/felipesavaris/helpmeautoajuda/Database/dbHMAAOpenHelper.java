@@ -8,7 +8,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 21);
+        super(context, "dbHMAA", null, 24);
     }
 
     //Responsavel por criar o Banco de Dados
@@ -16,7 +16,11 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         ScriptDDL ddl = new ScriptDDL();
-        db.execSQL(ddl.getAllTables());
+
+        db.execSQL(ddl.getTableUsuario());
+        db.execSQL(ddl.getTableProfessional());
+        db.execSQL(ddl.getTableCategoria());
+        db.execSQL(ddl.getTableSerial());
 
     }
 
@@ -26,45 +30,16 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
         ScriptDDL ddl = new ScriptDDL();
 
-        if(oldVersion < 5) {
-            db.execSQL(ddl.getAllTables());
-        }
+        if(oldVersion < newVersion) {
 
-        if(oldVersion < 13) {
-            db.execSQL("drop table categoria");
+            db.execSQL("drop table if exists usuario");
+            db.execSQL("drop table if exists professional");
+            db.execSQL("drop table if exists categoria");
+            db.execSQL("drop table if exists serial");
+
+            db.execSQL(ddl.getTableUsuario());
+            db.execSQL(ddl.getTableProfessional());
             db.execSQL(ddl.getTableCategoria());
-        }
-
-        if(oldVersion < 14) {
-            db.execSQL("drop table usuario");
-            db.execSQL(ddl.getTableUsuario());
-        }
-
-        if(newVersion == 16) {
-            db.execSQL("drop table usuario");
-            db.execSQL(ddl.getTableUsuario());
-        }
-
-        if(newVersion == 17) {
-            db.execSQL("drop table usuario");
-            db.execSQL(ddl.getTableUsuario());
-        }
-
-        if(newVersion > 17) {
-            db.execSQL(ddl.getTableProfessional());
-        }
-
-        if(newVersion == 19) {
-            db.execSQL("alter table professional " +
-                            "add REFSENHA varchar(200) NOT NULL DEFAULT '';");
-        }
-
-        if(newVersion == 20) {
-            db.execSQL("drop table professional");
-            db.execSQL(ddl.getTableProfessional());
-        }
-
-        if(oldVersion < 20) {
             db.execSQL(ddl.getTableSerial());
         }
     }
