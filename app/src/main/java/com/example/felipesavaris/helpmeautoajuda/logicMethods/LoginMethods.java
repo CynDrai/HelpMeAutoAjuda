@@ -9,8 +9,9 @@ import com.example.felipesavaris.helpmeautoajuda.Util.ToastMakeText;
 public class LoginMethods {
 
     //Método responsavel de fazer o Login
-    public static Usuario loginAccount(
-            Context context, String email, String senha) {
+    public static Usuario loginAccount(Context context,
+                                       String email,
+                                       String senha) {
 
         if(email.isEmpty() || senha.isEmpty()) {
             ToastMakeText.makeText(
@@ -22,6 +23,12 @@ public class LoginMethods {
 
         LoginDAO dao = new LoginDAO();
 
+        //Possivel Login Profissional
+        if(dao.findLoginProfessional(context, email, senha).getEmail() != null) {
+            return null;
+        }
+
+        //Return Usuário comum
         return dao.findLogin(context, email, senha);
     }
 

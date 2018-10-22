@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.felipesavaris.helpmeautoajuda.Model.Professional;
 import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
 import com.example.felipesavaris.helpmeautoajuda.Util.BackupDatabase;
 import com.example.felipesavaris.helpmeautoajuda.Util.PermissionUtil;
@@ -37,38 +38,53 @@ public class MainActivity extends AppCompatActivity {
         this.edEmailUsuario = (EditText) findViewById(R.id.edEmailUsuario);
         this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
+        //Checa se o sistema já tem a permissão
+        int permission = ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        );
+
+        //Se não houver a permissão
+        if(permission == -1) {
+            PermissionUtil.callWriteOnSDCard(
+                    this,
+                    REQUEST_PERMISSIONS_CODE
+            );
+        }
+
+        //Se houver a permissão, o backup será realizado
+        if(permission == 0) {
+            //Backup Banco de Dados
+            BackupDatabase.backupDatabase(this);
+        }
+
         //Dados do usuário após Login bem sucedido
         Usuario.setUsuarioUnico(LoginMethods.loginAccount(
-                this, this.edEmailUsuario.getText().toString(),
+                this,
+                this.edEmailUsuario.getText().toString(),
                 this.edSenhaUsuario.getText().toString())
         );
 
+        //Caso o Login seja do Usuário
         if (Usuario.getUsuarioUnico() != null) {
-
-            //Checa se o sistema já tem a permissão
-            int permission = ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-            );
-
-            //Se não houver a permissão
-            if(permission == -1) {
-                PermissionUtil.callWriteOnSDCard(
-                        this,
-                        REQUEST_PERMISSIONS_CODE
-                );
-            }
-
-            //Se houver a permissão, o backup será realizado
-            if(permission == 0) {
-                //Backup Banco de Dados
-                BackupDatabase.backupDatabase(this);
-            }
 
             //Mudança de Activity --> CategoriaActivity
             Intent it = new Intent(
                     this,
                     CategoriaActivity.class
+            );
+
+            startActivity(it);
+
+        }
+
+        //Caso o Login seja do Profissional
+        if(Professional.getProfessionalUnico() != null) {
+
+            //Mudança de Activity --> ProfessionalActivity
+            Intent it = new Intent(
+                      this,
+                    ProfessionalActivity.class
             );
 
             startActivity(it);
