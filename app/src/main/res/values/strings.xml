@@ -26,4 +26,5 @@
     <string name="txCadastroSerial">Cadastro Profissional</string>
     <string name="serial">Serial</string>
     <string name="enterSerial">Entrar código serial</string>
+    <string name="salvar">Salvar</string>
 </resources>

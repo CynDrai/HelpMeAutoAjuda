@@ -22,7 +22,7 @@
         <activity android:name=".CategoriaActivity" />
         <activity android:name=".selectedCategoriaActivity" />
         <activity android:name=".ProfessionalActivity" />
-        <activity android:name=".CadastroProfessionalActivity"></activity>
+        <activity android:name=".CadastroProfessionalActivity" />
     </application>
 
 </manifest>
