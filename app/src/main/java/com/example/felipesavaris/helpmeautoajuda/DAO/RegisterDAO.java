@@ -57,67 +57,7 @@ public class RegisterDAO {
         }
     }
 
-    //Método responsável de verificar dados redundantes no banco
-    //Ligado com addLogin
-    //Números de problemas = 1 - ID repetido, 2 - E-mail já cadastrado
-    public byte vrfIdEmail(Context context,
-                           String email,
-                           long id) {
-
-        try {
-
-            final SQLiteDatabase conexao;
-            conexao = ConnectionFactory.criarConexao(context);
-
-            String[] columns = {
-                    "id_usuario",
-                    "email"
-            };
-
-            String where = "id_usuario = " + id + " or email = '" + email + "'";
-
-            Cursor cursor = conexao.query(
-                    "usuario",
-                    columns,
-                    where,
-                    null,
-                    null,
-                    null,
-                    null
-            );
-
-
-            while (cursor.moveToNext()) {
-
-                Usuario usrTmp = new Usuario();
-
-                usrTmp.setId_usuario(cursor.getLong(0));
-                usrTmp.setEmail(cursor.getString(1));
-
-                if (id == usrTmp.getId_usuario()) {
-                    return 1;
-                }
-
-                if (email.equals(usrTmp.getEmail())) {
-                    return 2;
-                }
-            }
-
-            //Fecha a conexão do banco se aberta
-            if (conexao.isOpen()) {
-                conexao.close();
-            }
-
-        } catch(SQLException ex) {
-
-            ToastMakeText.makeText(
-                    context,
-                    "Houve um erro no banco de dados! - " + ex.getMessage()
-            );
-        }
-        return 0;
-    }
-
+    //Método responsável por cadastrar novos profissionais
     public long addLoginProfessional(Context context,
                                      Professional professional) {
 
@@ -163,6 +103,66 @@ public class RegisterDAO {
             );
             return -1;
         }
+    }
+
+    //Método responsável de verificar dados redundantes no banco
+    //Ligado com addLogin
+    //Números de problemas = 1 - ID repetido, 2 - E-mail já cadastrado
+    public byte vrfIdEmail(Context context,
+                           String email,
+                           long id) {
+
+        try {
+
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
+
+            String[] columns = {
+                    "id_usuario",
+                    "email"
+            };
+
+            String where = "id_usuario = " + id + " or email = '" + email + "'";
+
+            Cursor cursor = conexao.query(
+                    "usuario",
+                    columns,
+                    where,
+                    null,
+                    null,
+                    null,
+                    null
+            );
+
+            while (cursor.moveToNext()) {
+
+                Usuario usrTmp = new Usuario();
+
+                usrTmp.setId_usuario(cursor.getLong(0));
+                usrTmp.setEmail(cursor.getString(1));
+
+                if (id == usrTmp.getId_usuario()) {
+                    return 1;
+                }
+
+                if (email.equals(usrTmp.getEmail())) {
+                    return 2;
+                }
+            }
+
+            //Fecha a conexão do banco se aberta
+            if (conexao.isOpen()) {
+                conexao.close();
+            }
+
+        } catch(SQLException ex) {
+
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
+        }
+        return 0;
     }
 
     //Método responsável de verificar dados redundantes no banco
@@ -223,7 +223,6 @@ public class RegisterDAO {
             );
 
         }
-
         return 0;
     }
 }

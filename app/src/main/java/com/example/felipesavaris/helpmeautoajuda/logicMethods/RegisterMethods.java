@@ -91,16 +91,19 @@ public class RegisterMethods {
         usuario.setRefSenha(senhaUsuario);
 
         //Verificador de redundâncias no banco = ID_USUARIO e E-MAIL
-        boolean result = false;
+        boolean resultUser = false;
         RegisterDAO dao = new RegisterDAO();
         GeneratorID gId = new GeneratorID();
 
-        while(result == false) {
+        while(resultUser == false) {
             //Gerador de ID
             usuario.setId_usuario(gId.returnID());
 
             //Verificação de redundância = Resultado
-            byte resultTmp = dao.vrfIdEmail(context, email, usuario.getId_usuario());
+            byte resultTmp = dao.vrfIdEmail(context,
+                    email,
+                    usuario.getId_usuario()
+            );
 
             if (resultTmp == 1) continue;
 
@@ -112,7 +115,30 @@ public class RegisterMethods {
                 return false;
             }
 
-            result = true;
+            if(resultTmp == 0) resultUser = true;
+        }
+
+        //Verificador de redundâncias no banco = E-mail Professionais
+        boolean resultPro = false;
+
+        while(resultPro == false) {
+
+            //Verificador de redundância na table Professional = resultado
+            //Sem necessidade de Enviar o ID
+            byte resultTmp = dao.vrfIdEmailProfessional(context,
+                    email,
+                    0
+            );
+
+            if(resultTmp == 2) {
+                ToastMakeText.makeText(
+                        context,
+                        "Este E-mail já está cadastrado"
+                );
+                return false;
+            }
+
+            if(resultTmp == 0) resultPro = true;
         }
 
         //Resultado do sucesso do cadastro no banco
@@ -312,12 +338,12 @@ public class RegisterMethods {
         password = BCrypt.hashpw(password, BCrypt.gensalt(5));
         professional.setRefSenha(password);
 
-        boolean result = false;
+        boolean resultPro = false;
         GeneratorID generatorID = new GeneratorID();
         RegisterDAO dao = new RegisterDAO();
 
         //Verificador de Redundâncias no banco -> ID_PROFESSIONAL, EMAIL
-        while(result == false) {
+        while(resultPro == false) {
             //Gerador de ID
             professional.setId_professional(generatorID.returnID());
 
@@ -337,7 +363,30 @@ public class RegisterMethods {
                 );
                 return false;
             }
-            result = true;
+            if(resultTmp == 0) resultPro = true;
+        }
+
+        //Verificador de redundâncias no banco = E-MAIL
+        boolean resultUser = false;
+
+        while(resultUser == false) {
+
+            //Verificador de redundância na table usuário
+            //Sem necessidade de enviar o ID
+            byte resultTmp = dao.vrfIdEmail(
+                    context,
+                    email,
+                    0
+            );
+
+            if(resultTmp == 2) {
+                ToastMakeText.makeText(
+                        context,
+                        "Este E-mail já está cadastrado!"
+                );
+                return false;
+            }
+            if(resultTmp == 0) resultUser = true;
         }
 
         //Resultado do sucesso do cadastro no banco

@@ -19,4 +19,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 21 - Create table Serial;
 
-22-23-24 - Reset Database, Create Table Usuario, Professional, Categoria, Serial.
+22-23-24 - Reset Database, Create Table Usuario, Professional, Categoria, Serial;
+
+25 - Reset Database com Intuito de retirar dados Redundântes De acordo com a versão 0.1.7.

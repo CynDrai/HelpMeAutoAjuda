@@ -8,7 +8,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 24);
+        super(context, "dbHMAA", null, 25);
     }
 
     //Responsavel por criar o Banco de Dados
