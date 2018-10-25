@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
+
 public class selectedCategoriaActivity extends AppCompatActivity {
 
     @Override
@@ -27,5 +29,16 @@ public class selectedCategoriaActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Depressão");
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        //Apagar a instância do Usuário caso aperte o botão voltar
+        if(Usuario.getUsuarioUnico() != null) {
+            Usuario.setUsuarioUnico(null);
+        }
+
+        super.onBackPressed();
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.example.felipesavaris.helpmeautoajuda.Adapter.Categories.ListCategoryAdapter;
+import com.example.felipesavaris.helpmeautoajuda.Model.Professional;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,17 @@ public class ProfessionalActivity extends AppCompatActivity {
         actionBar.setTitle("Inscrição de categorias");
 
         loadCategories();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        //Apagar a instância do Profissional caso aperte o botão voltar
+        if(Professional.getProfessionalUnico() != null) {
+            Professional.setProfessionalUnico(null);
+        }
+
+        super.onBackPressed();
     }
 
     private void loadCategories() {

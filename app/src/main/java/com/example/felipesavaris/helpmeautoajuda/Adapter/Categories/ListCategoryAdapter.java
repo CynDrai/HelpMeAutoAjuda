@@ -50,16 +50,16 @@ public class ListCategoryAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.listview_categories, null);
             holder = new ViewHolder();
 
-            holder.tvCategoryName = (TextView) convertView.findViewById(R.id.tvCategoryName);
             holder.cbCategoryCheck = (CheckBox) convertView.findViewById(R.id.cbCategoryCheck);
+            holder.tvCategoryName = (TextView) convertView.findViewById(R.id.tvCategoryName);
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.tvCategoryName.setText("Depressão");
         holder.cbCategoryCheck.setChecked(true);
+        holder.tvCategoryName.setText("Depressão");
 
         return convertView;
     }

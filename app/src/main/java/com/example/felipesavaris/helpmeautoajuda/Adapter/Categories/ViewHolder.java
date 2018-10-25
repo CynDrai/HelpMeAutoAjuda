@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 public class ViewHolder {
 
-    TextView tvCategoryName;
     CheckBox cbCategoryCheck;
+    TextView tvCategoryName;
 
 }
