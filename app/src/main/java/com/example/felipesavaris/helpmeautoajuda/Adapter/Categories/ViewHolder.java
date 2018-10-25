@@ -3,9 +3,10 @@ package com.example.felipesavaris.helpmeautoajuda.Adapter.Categories;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class ViewHolder {
+class ViewHolder {
 
-    CheckBox cbCategoryCheck;
-    TextView tvCategoryName;
+    //Elementos que serão usados em um List View
+    protected CheckBox cbCategoryCheck;
+    protected TextView tvCategoryName;
 
 }

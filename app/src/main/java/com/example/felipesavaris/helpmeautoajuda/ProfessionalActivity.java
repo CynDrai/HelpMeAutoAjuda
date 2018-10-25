@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.example.felipesavaris.helpmeautoajuda.Adapter.Categories.ListCategoryAdapter;
+import com.example.felipesavaris.helpmeautoajuda.DAO.CategoryDAO;
+import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
 import com.example.felipesavaris.helpmeautoajuda.Model.Professional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProfessionalActivity extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class ProfessionalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_professional);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Inscrição de categorias");
+        actionBar.setTitle("Inscrição de Categorias");
 
         loadCategories();
     }
@@ -38,17 +41,22 @@ public class ProfessionalActivity extends AppCompatActivity {
 
     private void loadCategories() {
 
-        ArrayList lst = new ArrayList();
-        lst.add("Teste");
+        //Lista das categorias
+        CategoryDAO dao = new CategoryDAO();
+        List lstCategories =
+                new ArrayList<Categoria>(dao.selectAllCategories(this));
 
+        //Adapter do ListView
         ListCategoryAdapter adapter =
                 new ListCategoryAdapter(
                         this,
-                        lst
+                        lstCategories
                 );
 
+        //Inicialização do ListView
         this.listCategorias = (ListView) findViewById(R.id.lstCategory);
 
+        //Set Adapter no ListView
         listCategorias.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();

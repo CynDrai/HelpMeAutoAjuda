@@ -43,13 +43,19 @@ public class ListCategoryAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        //Elementos a serem implementados no ListView
         ViewHolder holder;
+
+        //Instância da categoria que será colocada no ListView
+        final Categoria categoria = (Categoria) getItem(position);
 
         if(convertView == null) {
 
+            //Inicialização do XML listview_categories
             convertView = mLayoutInflater.inflate(R.layout.listview_categories, null);
             holder = new ViewHolder();
 
+            //Inicialização dos elementos do XML
             holder.cbCategoryCheck = (CheckBox) convertView.findViewById(R.id.cbCategoryCheck);
             holder.tvCategoryName = (TextView) convertView.findViewById(R.id.tvCategoryName);
 
@@ -58,8 +64,9 @@ public class ListCategoryAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        //Configuração dos elementos que irá ao ListView
         holder.cbCategoryCheck.setChecked(true);
-        holder.tvCategoryName.setText("Depressão");
+        holder.tvCategoryName.setText(categoria.getNome_categoria());
 
         return convertView;
     }
