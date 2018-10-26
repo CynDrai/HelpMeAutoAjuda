@@ -62,4 +62,21 @@ public class ScriptDDL {
 
         return sql;
     }
+
+    //Criação da Table Categoria_Professional -> N..N
+    protected String getTableCategoriaProfessional() {
+
+        String sql = "";
+
+        sql =  "CREATE TABLE IF NOT EXISTS CATEGORIA_PROFESSIONAL(";
+        sql += "ID_CATEGORIA                    INTEGER                         NOT NULL,";
+        sql += "ID_PROFESSIONAL                 BIGINT                          NOT NULL,";
+        sql += "CONSTRAINT                      PK_CATEGORIA_PROFESSIONAL       PRIMARY KEY(ID_CATEGORIA, ID_PROFESSIONAL),";
+        sql += "CONSTRAINT                      FK_CATEGORIA_PROFESSIONAL       FOREIGN KEY(ID_CATEGORIA) ";
+        sql +=      "REFERENCES     CATEGORIA(ID_CATEGORIA),";
+        sql += "CONSTRAINT                      FK_PROFESSIONAL_CATEGORIA       FOREIGN KEY(ID_PROFESSIONAL) ";
+        sql +=      "REFERENCES     PROFESSIONAL(ID_PROFESSIONAL)); ";
+
+        return sql;
+    }
 }
