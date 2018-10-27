@@ -69,9 +69,10 @@ public class ScriptDDL {
         String sql = "";
 
         sql =  "CREATE TABLE IF NOT EXISTS CATEGORIA_PROFESSIONAL(";
+        sql += "ID_GENERIC                      INTEGER                         AUTO INCREMENT,";
         sql += "ID_CATEGORIA                    INTEGER                         NOT NULL,";
         sql += "ID_PROFESSIONAL                 BIGINT                          NOT NULL,";
-        sql += "CONSTRAINT                      PK_CATEGORIA_PROFESSIONAL       PRIMARY KEY(ID_CATEGORIA, ID_PROFESSIONAL),";
+        sql += "CONSTRAINT                      PK_CATEGORIA_PROFESSIONAL       PRIMARY KEY(ID_GENERIC),";
         sql += "CONSTRAINT                      FK_CATEGORIA_PROFESSIONAL       FOREIGN KEY(ID_CATEGORIA) ";
         sql +=      "REFERENCES     CATEGORIA(ID_CATEGORIA),";
         sql += "CONSTRAINT                      FK_PROFESSIONAL_CATEGORIA       FOREIGN KEY(ID_PROFESSIONAL) ";

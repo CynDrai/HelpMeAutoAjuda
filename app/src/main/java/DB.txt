@@ -23,4 +23,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 25 - Reset Database com Intuito de retirar dados Redundântes De acordo com a versão 0.1.7;
 
-26 - Criação da Table Categoria_Professional N..N.
+26 - Criação da Table Categoria_Professional N..N;
+
+27-28 - Correção do Banco colocando as categorias.
