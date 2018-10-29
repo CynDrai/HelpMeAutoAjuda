@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.felipesavaris.helpmeautoajuda.DAO.CategoryDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
+import com.example.felipesavaris.helpmeautoajuda.Model.Professional;
 import com.example.felipesavaris.helpmeautoajuda.R;
 
 import java.util.ArrayList;
@@ -18,10 +20,11 @@ public class ListCategoryAdapter extends BaseAdapter {
 
     private LayoutInflater mLayoutInflater;
     private List<Categoria> categories;
+    private Context context;
 
     public ListCategoryAdapter(Context context, List<Categoria> categories) {
         this.mLayoutInflater = mLayoutInflater.from(context);
-
+        this.context = context;
         this.categories = new ArrayList<>(categories);
     }
 
@@ -64,8 +67,20 @@ public class ListCategoryAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        CategoryDAO dao = new CategoryDAO();
+
         //Configuração dos elementos que irá ao ListView
-        holder.cbCategoryCheck.setChecked(true);
+        boolean vrfCheckBox = dao.vrfCheckBox(
+                context,
+                categoria.getId_categoria(),
+                Professional.getProfessionalUnico().getId_professional());
+
+        if(vrfCheckBox) {
+            holder.cbCategoryCheck.setChecked(vrfCheckBox);
+        } else {
+            holder.cbCategoryCheck.setChecked(false);
+        }
+
         holder.tvCategoryName.setText(categoria.getNome_categoria());
 
         return convertView;
