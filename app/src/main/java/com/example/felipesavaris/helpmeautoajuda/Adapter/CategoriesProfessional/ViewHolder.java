@@ -1,4 +1,4 @@
-package com.example.felipesavaris.helpmeautoajuda.Adapter.Categories;
+package com.example.felipesavaris.helpmeautoajuda.Adapter.CategoriesProfessional;
 
 import android.widget.CheckBox;
 import android.widget.TextView;

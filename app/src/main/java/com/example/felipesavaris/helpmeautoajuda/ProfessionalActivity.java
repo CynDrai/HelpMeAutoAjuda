@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.felipesavaris.helpmeautoajuda.Adapter.Categories.ListCategoryAdapter;
+import com.example.felipesavaris.helpmeautoajuda.Adapter.CategoriesProfessional.ListCategoryAdapter;
 import com.example.felipesavaris.helpmeautoajuda.DAO.CategoryDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
 import com.example.felipesavaris.helpmeautoajuda.Model.Professional;

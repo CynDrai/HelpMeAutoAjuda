@@ -1,5 +1,6 @@
 package com.example.felipesavaris.helpmeautoajuda.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -122,5 +123,83 @@ public class CategoryDAO {
         }
 
         return false;
+    }
+
+    //Método responsável por cadastrar o profissional em novas categorias
+    public long insertCategoriaProfessional(Context context,
+                                              int idCategoria,
+                                              long idProfessional) {
+
+        try {
+
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
+            long returnDB;
+
+            //SQL responsável por fazer o INSERT de novos profissionais em categorias
+            ContentValues values = new ContentValues();
+
+            values.put("id_categoria", idCategoria);
+            values.put("id_professional", idProfessional);
+
+            returnDB = conexao.insert(
+                    "categoria_professional",
+                    null,
+                    values
+            );
+
+            //Fecha a conexão do banco se aberta
+            if(conexao.isOpen()) {
+                conexao.close();
+            }
+
+            return returnDB;
+
+        } catch(SQLException ex) {
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
+        }
+
+        return -1;
+    }
+
+    //Método responsável por Deletar o Profissional das categorias
+    public int deleteProfessionalCategoria(Context context,
+                                            int idCategoria,
+                                            long idProfessional) {
+
+        try {
+
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
+            int returnDB;
+
+            String where = "id_categoria = '" + idCategoria +
+                    "' and id_professional = '" + idProfessional + "'";
+
+            //SQL responsável por fazer o DELETE de profissionais em categorias
+            returnDB = conexao.delete(
+                    "categoria_professional",
+                    where,
+                    null
+            );
+
+            //Fecha a conexão do banco se aberta
+            if(conexao.isOpen()) {
+                conexao.close();
+            }
+
+            return returnDB;
+
+        } catch(SQLException ex) {
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
+        }
+
+        return -1;
     }
 }
