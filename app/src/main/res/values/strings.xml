@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">HelpMe Auto Ajuda</string>
     <string name="login">Login</string>
-    <string name="senha">Senha:</string>
-    <string name="usrOrEmail">Usuário ou E-Mail:</string>
+    <string name="senha">Senha</string>
+    <string name="usrOrEmail">Usuário ou E-Mail</string>
     <string name="cadastro">Cadastro</string>
-    <string name="email">E-Mail:</string>
+    <string name="email">E-Mail</string>
     <string name="usr">Usuário</string>
     <string name="nomeFantasia">Nome Fantasia</string>
     <string name="cadastrar">Cadastrar</string>
@@ -16,4 +16,15 @@
     <string name="jogosAzar">Jogos de Azar</string>
     <string name="relato">Relato</string>
     <string name="ajuda">Ajuda</string>
+    <string name="category">Categorias</string>
+    <string name="cadastroCategory">Categorias Cadastradas</string>
+    <string name="nameProfessional">Nome do Profissional</string>
+    <string name="cpf">CPF</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="address">Endereço</string>
+    <string name="fone">Telefone</string>
+    <string name="txCadastroSerial">Cadastro Profissional</string>
+    <string name="serial">Serial</string>
+    <string name="enterSerial">Entrar código serial</string>
+    <string name="salvar">Salvar</string>
 </resources>

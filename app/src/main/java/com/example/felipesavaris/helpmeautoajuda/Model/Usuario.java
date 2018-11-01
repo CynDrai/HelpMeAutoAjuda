@@ -8,7 +8,6 @@ public class Usuario {
     private String nameFan;
     private String refSenha;
 
-
     //Instância do Usuário
     private static Usuario usuarioUnico;
 

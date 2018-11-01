@@ -27,6 +27,13 @@ public class BackupDatabase {
 
         Calendar c = Calendar.getInstance();
 
+        //Diretório Personalizado
+        final String DIR = "/backupsHMAA";
+        File folder = new File(Environment.getExternalStorageDirectory() + DIR);
+        if(!folder.exists()) {
+            folder.mkdir();
+        }
+
         try {
             // Caminho de Origem do Seu Banco de Dados
             InputStream in = new FileInputStream(
@@ -36,7 +43,7 @@ public class BackupDatabase {
             // Caminho de Destino do Backup do Seu Banco de Dados
             OutputStream out = new FileOutputStream(new File(
                     Environment.getExternalStorageDirectory()
-                            + "/backups/backupHMAA " +
+                            + DIR + "/backupHMAA " +
                             c.get(Calendar.DAY_OF_MONTH) + "." +
                             c.get(Calendar.MONTH) + "." +
                             c.get(Calendar.YEAR) + "_" +

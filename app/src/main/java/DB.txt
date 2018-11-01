@@ -9,4 +9,20 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 16 - Correção NewVerison no onUpgrade em relação ao 15;
 
-17 - Limpeza de Database para Testes
+17 - Limpeza de Database para Testes;
+
+18 - Criação da Tabela Professional;
+
+19 - Alter Table, criação da coluna RefSenha para profissionais;
+
+20 - Drop table e Create table Professional;
+
+21 - Create table Serial;
+
+22-23-24 - Reset Database, Create Table Usuario, Professional, Categoria, Serial;
+
+25 - Reset Database com Intuito de retirar dados Redundântes De acordo com a versão 0.1.7;
+
+26 - Criação da Table Categoria_Professional N..N;
+
+27-28 - Correção do Banco colocando as categorias.

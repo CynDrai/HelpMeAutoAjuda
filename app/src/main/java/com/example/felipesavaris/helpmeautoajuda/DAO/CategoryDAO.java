@@ -3,228 +3,203 @@ package com.example.felipesavaris.helpmeautoajuda.DAO;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.felipesavaris.helpmeautoajuda.Model.Professional;
 import com.example.felipesavaris.helpmeautoajuda.Util.ConnectionFactory;
 import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
+import com.example.felipesavaris.helpmeautoajuda.Util.ToastMakeText;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryDAO {
 
-    //Método Responsável por adicionar as categorias estáticas
-    public void addStaticCategory(Context context) {
+    //Método responsável de retornar a lista de Categorias
+    public List selectAllCategories(Context context) {
+        List categories = new ArrayList<Categoria>();
 
-        //Lista de Categorias
-        ArrayList list = vrfCategory(context);
+        try {
 
-        //Condição para fazer INSERTS de categorias Estáticas
-        if(list.size() < 6) {
-            addCategoryDepressao(context);
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
 
-            addCategoryCigarro(context);
+            String[] columns = {
+                    "id_categoria",
+                    "nome_categoria"
+            };
 
-            addCategoryAlcool(context);
+            Cursor cursor = conexao.query(
+                    "categoria",
+                    columns,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+            );
 
-            addCategoryMaconha(context);
+            while (cursor.moveToNext()) {
+                Categoria categoria = new Categoria();
 
-            addCategoryCrack(context);
+                categoria.setId_categoria(cursor.getInt(0));
+                categoria.setNome_categoria(cursor.getString(1));
 
-            addCategoryJogosDeAzar(context);
+                categories.add(categoria);
+            }
+
+            //Fecha a conexão do banco se aberta
+            if (conexao.isOpen()) {
+                conexao.close();
+            }
+
+            return categories;
+
+        } catch (SQLException ex) {
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
         }
+        return null;
     }
 
-    //Categoria Depressão
-    private void addCategoryDepressao(Context context){
+    //Método responsável por Verificar as categorias que o profissional está cadastrado
+    public boolean vrfCheckBox(Context context,
+                               int idCategoria,
+                               long idProfessional) {
 
-        final SQLiteDatabase conexao;
+        try {
 
-        ContentValues values = new ContentValues();
-        conexao = ConnectionFactory.criarConexao(context);
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
 
-        Categoria categoria = new Categoria();
-        categoria.setId_categoria(0);
-        categoria.setNome_categoria("Depressão");
+            String[] columns = {
+                    "id_categoria",
+                    "id_professional"
+            };
 
-        values.put("id_categoria", categoria.getId_categoria());
-        values.put("nome_categoria", categoria.getNome_categoria());
+            String where = "id_categoria = '" + idCategoria + "' and id_professional = '" + idProfessional + "'";
 
-        conexao.insert(
-                "categoria",
-                null,
-                values
-        );
+            Cursor cursor = conexao.query(
+                    "categoria_professional",
+                    columns,
+                    where,
+                    null,
+                    null,
+                    null,
+                    null
+            );
 
-        if(conexao.isOpen()) {
-            conexao.close();
+            Categoria categoriaTmp = new Categoria();
+            Professional professionalTmp = new Professional();
+
+            while(cursor.moveToNext()) {
+
+                categoriaTmp.setId_categoria(cursor.getInt(0));
+                professionalTmp.setId_professional(cursor.getLong(1));
+
+                if(categoriaTmp.getId_categoria() != 0
+                        ||
+                        professionalTmp.getId_professional() != 0) {
+
+                    return true;
+                }
+            }
+
+            //Fecha a conexão do banco se aberta
+            if(conexao.isOpen()) {
+                conexao.close();
+            }
+
+            return false;
+
+        } catch(SQLException ex) {
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
         }
+
+        return false;
     }
 
-    //Categoria Cigarro
-    private void addCategoryCigarro(Context context){
+    //Método responsável por cadastrar o profissional em novas categorias
+    public long insertCategoriaProfessional(Context context,
+                                              int idCategoria,
+                                              long idProfessional) {
 
-        final SQLiteDatabase conexao;
+        try {
 
-        ContentValues values = new ContentValues();
-        conexao = ConnectionFactory.criarConexao(context);
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
+            long returnDB;
 
-        Categoria categoria = new Categoria();
-        categoria.setId_categoria(1);
-        categoria.setNome_categoria("Cigarro");
+            //SQL responsável por fazer o INSERT de novos profissionais em categorias
+            ContentValues values = new ContentValues();
 
-        values.put("id_categoria", categoria.getId_categoria());
-        values.put("nome_categoria", categoria.getNome_categoria());
+            values.put("id_categoria", idCategoria);
+            values.put("id_professional", idProfessional);
 
-        conexao.insert(
-                "categoria",
-                null,
-                values
-        );
+            returnDB = conexao.insert(
+                    "categoria_professional",
+                    null,
+                    values
+            );
 
-        if(conexao.isOpen()) {
-            conexao.close();
+            //Fecha a conexão do banco se aberta
+            if(conexao.isOpen()) {
+                conexao.close();
+            }
+
+            return returnDB;
+
+        } catch(SQLException ex) {
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
         }
+
+        return -1;
     }
 
-    //Categoria Álcool
-    private void addCategoryAlcool(Context context){
+    //Método responsável por Deletar o Profissional das categorias
+    public int deleteProfessionalCategoria(Context context,
+                                            int idCategoria,
+                                            long idProfessional) {
 
-        final SQLiteDatabase conexao;
+        try {
 
-        ContentValues values = new ContentValues();
-        conexao = ConnectionFactory.criarConexao(context);
+            final SQLiteDatabase conexao;
+            conexao = ConnectionFactory.criarConexao(context);
+            int returnDB;
 
-        Categoria categoria = new Categoria();
-        categoria.setId_categoria(2);
-        categoria.setNome_categoria("Álcool");
+            String where = "id_categoria = '" + idCategoria +
+                    "' and id_professional = '" + idProfessional + "'";
 
-        values.put("id_categoria", categoria.getId_categoria());
-        values.put("nome_categoria", categoria.getNome_categoria());
+            //SQL responsável por fazer o DELETE de profissionais em categorias
+            returnDB = conexao.delete(
+                    "categoria_professional",
+                    where,
+                    null
+            );
 
-        conexao.insert(
-                "categoria",
-                null,
-                values
-        );
+            //Fecha a conexão do banco se aberta
+            if(conexao.isOpen()) {
+                conexao.close();
+            }
 
-        if(conexao.isOpen()) {
-            conexao.close();
-        }
-    }
+            return returnDB;
 
-    //Categoria Maconha
-    private void addCategoryMaconha(Context context){
-
-        final SQLiteDatabase conexao;
-
-        ContentValues values = new ContentValues();
-        conexao = ConnectionFactory.criarConexao(context);
-
-        Categoria categoria = new Categoria();
-        categoria.setId_categoria(3);
-        categoria.setNome_categoria("Maconha");
-
-        values.put("id_categoria", categoria.getId_categoria());
-        values.put("nome_categoria", categoria.getNome_categoria());
-
-        conexao.insert(
-                "categoria",
-                null,
-                values
-        );
-
-        if(conexao.isOpen()) {
-            conexao.close();
-        }
-    }
-
-    //Categoria Crack
-    private void addCategoryCrack(Context context){
-
-        final SQLiteDatabase conexao;
-
-        ContentValues values = new ContentValues();
-        conexao = ConnectionFactory.criarConexao(context);
-
-        Categoria categoria = new Categoria();
-        categoria.setId_categoria(4);
-        categoria.setNome_categoria("Crack");
-
-        values.put("id_categoria", categoria.getId_categoria());
-        values.put("nome_categoria", categoria.getNome_categoria());
-
-        conexao.insert(
-                "categoria",
-                null,
-                values
-        );
-
-        if(conexao.isOpen()) {
-            conexao.close();
-        }
-    }
-
-    //Categoria Jogos de Azar
-    private void addCategoryJogosDeAzar(Context context){
-
-        final SQLiteDatabase conexao;
-
-        ContentValues values = new ContentValues();
-        conexao = ConnectionFactory.criarConexao(context);
-
-        Categoria categoria = new Categoria();
-        categoria.setId_categoria(5);
-        categoria.setNome_categoria("Jogos de Azar");
-
-        values.put("id_categoria", categoria.getId_categoria());
-        values.put("nome_categoria", categoria.getNome_categoria());
-
-        conexao.insert(
-                "categoria",
-                null,
-                values
-        );
-
-        if(conexao.isOpen()) {
-            conexao.close();
-        }
-    }
-
-    private ArrayList vrfCategory(Context context) {
-
-        final SQLiteDatabase conexao;
-        conexao = ConnectionFactory.criarConexao(context);
-
-        String columns[] = {
-                "id_categoria",
-                "nome_categoria"};
-
-        Cursor cursor = conexao.query(
-                "categoria",
-                columns,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
-
-        ArrayList tmpCat = new ArrayList();
-
-        while(cursor.moveToNext()) {
-            Categoria categoria = new Categoria();
-
-            categoria.setId_categoria(cursor.getInt(0));
-            categoria.setNome_categoria(cursor.getString(1));
-
-            tmpCat.add(categoria);
+        } catch(SQLException ex) {
+            ToastMakeText.makeText(
+                    context,
+                    "Houve um erro no banco de dados! - " + ex.getMessage()
+            );
         }
 
-        if(conexao.isOpen()) {
-            conexao.close();
-        }
-
-        return tmpCat;
+        return -1;
     }
 }

@@ -46,4 +46,16 @@ public class CadastroActivity extends AppCompatActivity {
             startActivity(it);
         }
     }
+
+    //Botão Serial
+    public void serialBt(View view) {
+
+        //Mudança de Activity --> CadastroProfessionalActivity
+        Intent it = new Intent(
+                this,
+                CadastroProfessionalActivity.class
+        );
+
+        startActivity(it);
+    }
 }
