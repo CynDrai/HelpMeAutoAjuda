@@ -23,6 +23,7 @@
         <activity android:name=".selectedCategoriaActivity" />
         <activity android:name=".ProfessionalActivity" />
         <activity android:name=".CadastroProfessionalActivity" />
+        <activity android:name=".StoriesActivity"></activity>
     </application>
 
 </manifest>

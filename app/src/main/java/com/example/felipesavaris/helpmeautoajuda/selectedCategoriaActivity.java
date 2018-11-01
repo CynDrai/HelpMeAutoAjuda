@@ -1,8 +1,10 @@
 package com.example.felipesavaris.helpmeautoajuda;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -40,5 +42,16 @@ public class selectedCategoriaActivity extends AppCompatActivity {
         }
 
         super.onBackPressed();
+    }
+
+    //Botão Deixar Relato
+    public void btRegisterStories(View view) {
+        //Mudança de Activity -> StoriesActivity
+        Intent it = new Intent(
+                this,
+                StoriesActivity.class
+        );
+
+        startActivity(it);
     }
 }
