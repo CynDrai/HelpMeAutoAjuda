@@ -27,8 +27,11 @@ public class CadastroActivity extends AppCompatActivity {
         this.edNameFan = (EditText) findViewById(R.id.edNameFan);
         this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
+        RegisterMethods registerMethods = new RegisterMethods();
         boolean boo;
-        boo = RegisterMethods.addRegister(
+
+        //Resultado do Registro
+        boo = registerMethods.addRegister(
                 this,
                 this.edEmail.getText().toString(),
                 this.edNameUsr.getText().toString(),
@@ -37,7 +40,7 @@ public class CadastroActivity extends AppCompatActivity {
         );
 
         //Mudança de Activity --> MainActivity
-        if(boo != false) {
+        if(boo) {
             Intent it = new Intent(
                     this,
                     MainActivity.class
@@ -55,7 +58,6 @@ public class CadastroActivity extends AppCompatActivity {
                 this,
                 CadastroProfessionalActivity.class
         );
-
         startActivity(it);
     }
 }

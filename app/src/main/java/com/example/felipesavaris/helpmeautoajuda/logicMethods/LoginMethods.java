@@ -9,7 +9,7 @@ import com.example.felipesavaris.helpmeautoajuda.Util.ToastMakeText;
 public class LoginMethods {
 
     //Método responsavel de fazer o Login
-    public static Usuario loginAccount(Context context,
+    public Usuario loginAccount(Context context,
                                        String email,
                                        String senha) {
 
