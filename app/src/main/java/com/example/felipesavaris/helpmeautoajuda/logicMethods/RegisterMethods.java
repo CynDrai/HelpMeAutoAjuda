@@ -13,7 +13,7 @@ import org.mindrot.jbcrypt.BCrypt;
 public class RegisterMethods {
 
     //Método Responsável de fazer a lógica de cadastro de usuários
-    public static boolean addRegister(Context context,
+    public boolean addRegister(Context context,
                                       String email,
                                       String nameUsr,
                                       String nameFan,
@@ -95,7 +95,7 @@ public class RegisterMethods {
         RegisterDAO dao = new RegisterDAO();
         GeneratorID gId = new GeneratorID();
 
-        while(resultUser == false) {
+        while(!resultUser) {
             //Gerador de ID
             usuario.setId_usuario(gId.returnID());
 
@@ -120,8 +120,7 @@ public class RegisterMethods {
 
         //Verificador de redundâncias no banco = E-mail Professionais
         boolean resultPro = false;
-
-        while(resultPro == false) {
+        while(!resultPro) {
 
             //Verificador de redundância na table Professional = resultado
             //Sem necessidade de Enviar o ID
@@ -343,7 +342,7 @@ public class RegisterMethods {
         RegisterDAO dao = new RegisterDAO();
 
         //Verificador de Redundâncias no banco -> ID_PROFESSIONAL, EMAIL
-        while(resultPro == false) {
+        while(!resultPro) {
             //Gerador de ID
             professional.setId_professional(generatorID.returnID());
 
@@ -368,8 +367,7 @@ public class RegisterMethods {
 
         //Verificador de redundâncias no banco = E-MAIL
         boolean resultUser = false;
-
-        while(resultUser == false) {
+        while(!resultUser) {
 
             //Verificador de redundância na table usuário
             //Sem necessidade de enviar o ID
