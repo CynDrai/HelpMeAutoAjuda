@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.felipesavaris.helpmeautoajuda.Model.Usuario;
+import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
 
 public class selectedCategoriaActivity extends AppCompatActivity {
 
@@ -30,15 +30,15 @@ public class selectedCategoriaActivity extends AppCompatActivity {
         //CÓDIGO TEMPORÁRIO
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Depressão");
+        actionBar.setTitle(Categoria.getCategoriaUnica().getNome_categoria());
     }
 
     @Override
     public void onBackPressed() {
 
-        //Apagar a instância do Usuário caso aperte o botão voltar
-        if(Usuario.getUsuarioUnico() != null) {
-            Usuario.setUsuarioUnico(null);
+        //Apagar a instância da categoria caso aperte o botão voltar
+        if(Categoria.getCategoriaUnica() != null) {
+            Categoria.setCategoriaUnica(null);
         }
 
         super.onBackPressed();

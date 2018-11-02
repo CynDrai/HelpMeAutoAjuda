@@ -20,6 +20,7 @@ public class StoriesActivity extends AppCompatActivity {
                 this,
                 selectedCategoriaActivity.class
         );
+        it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(it);
     }
 }
