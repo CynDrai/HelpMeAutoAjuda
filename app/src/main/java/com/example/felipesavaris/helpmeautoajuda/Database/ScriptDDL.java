@@ -80,4 +80,20 @@ public class ScriptDDL {
 
         return sql;
     }
+
+    //Criação da Table Story
+    protected String getTableStory() {
+
+        String sql = "";
+
+        sql =  "CREATE TABLE IF NOT EXISTS STORY(";
+        sql += "ID_STORY                        BIGINT                          AUTO INCREMENT,";
+        sql += "ID_USUARIO                      BIGINT                          NOT NULL,";
+        sql += "STORY                           VARCHAR(600)                    NOT NULL,";
+        sql += "CONSTRAINT                      PK_STORY                        PRIMARY KEY(ID_STORY),";
+        sql += "CONSTRAINT                      FK_STORY_USER                   FOREIGN KEY(ID_USUARIO)";
+        sql +=      "REFERENCES     USUARIO(ID_USUARIO)); ";
+
+        return sql;
+    }
 }
