@@ -27,4 +27,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 27-28 - Correção do Banco colocando as categorias;
 
-29 - Reset dadis Banco de Dados.
+29 - Reset dadis Banco de Dados;
+
+30 - Criação da Table Story.

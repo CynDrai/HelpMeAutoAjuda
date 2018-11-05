@@ -8,7 +8,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
     //Alterar a versão do banco para cada alteração no onUpgrade
     public dbHMAAOpenHelper(Context context) {
-        super(context, "dbHMAA", null, 29);
+        super(context, "dbHMAA", null, 30);
     }
 
     //Responsavel por criar o Banco de Dados
@@ -23,6 +23,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
         db.execSQL(ddl.getTableCategoria());
         db.execSQL(ddl.getTableSerial());
         db.execSQL(ddl.getTableCategoriaProfessional());
+        db.execSQL(ddl.getTableStory());
 
         //Insert Categorias
         ScriptDDLCategories insert = new ScriptDDLCategories();
@@ -40,7 +41,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        if(oldVersion < newVersion) {
+        if(oldVersion < 29) {
 
 
             db.execSQL("drop table if exists usuario");
@@ -65,6 +66,13 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
             db.execSQL(insert.insertCrack());
             db.execSQL(insert.insertJogosDeAzar());
 
+        }
+
+        if(oldVersion < newVersion) {
+
+            ScriptDDL ddl = new ScriptDDL();
+
+            db.execSQL(ddl.getTableStory());
         }
     }
 }
