@@ -8,29 +8,27 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.felipesavaris.helpmeautoajuda.Adapter.Stories.ListStoriesAdapter;
+import com.example.felipesavaris.helpmeautoajuda.DAO.StoryDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
+import com.example.felipesavaris.helpmeautoajuda.Model.Story;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class selectedCategoriaActivity extends AppCompatActivity {
+
+    private ListView lstRelatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_categoria);
 
-        //CÓDIGO TEMPORÁRIO
-        String test[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "M", "N", "O",
-        "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-
-        ListView listaTeste = findViewById(R.id.lstRelatos);
-
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, test);
-
-        listaTeste.setAdapter(adapter);
-        //CÓDIGO TEMPORÁRIO
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(Categoria.getCategoriaUnica().getNome_categoria());
+
+        loadStories();
     }
 
     @Override
@@ -53,5 +51,33 @@ public class selectedCategoriaActivity extends AppCompatActivity {
         );
 
         startActivity(it);
+    }
+
+    public void loadStories() {
+
+        //Lista de Stories
+        StoryDAO dao = new StoryDAO();
+        List lstStories =
+                new ArrayList<Story>(
+                        dao.selectStories(
+                                this,
+                                Categoria.getCategoriaUnica().getId_categoria()
+                        )
+                );
+
+        //Adapter do ListView
+        ListStoriesAdapter adapter =
+                new ListStoriesAdapter(
+                        this,
+                        lstStories
+                );
+
+        //Inicialização do ListView
+        this.lstRelatos = (ListView) findViewById(R.id.lstRelatos);
+
+        //Set Adapter no ListView
+        this.lstRelatos.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
     }
 }
