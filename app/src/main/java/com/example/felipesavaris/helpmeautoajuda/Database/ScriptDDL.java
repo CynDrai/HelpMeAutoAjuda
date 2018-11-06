@@ -87,11 +87,10 @@ public class ScriptDDL {
         String sql = "";
 
         sql =  "CREATE TABLE IF NOT EXISTS STORY(";
-        sql += "ID_STORY                        BIGINT                          AUTO INCREMENT,";
+        sql += "ID_STORY                        INTEGER                         PRIMARY KEY AUTOINCREMENT NOT NULL,";
         sql += "ID_USUARIO                      BIGINT                          NOT NULL,";
         sql += "ID_CATEGORIA                    INTEGER                         NOT NULL,";
         sql += "STORY                           VARCHAR(600)                    NOT NULL,";
-        sql += "CONSTRAINT                      PK_STORY                        PRIMARY KEY(ID_STORY),";
         sql += "CONSTRAINT                      FK_STORY_USER                   FOREIGN KEY(ID_USUARIO)";
         sql +=      "REFERENCES     USUARIO(ID_USUARIO),";
         sql += "CONSTRAINT                      FK_STORY_CATEGORY               FOREIGN KEY(ID_CATEGORIA)";
