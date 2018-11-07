@@ -33,4 +33,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 31 - Correção Table Story;
 
-32 - Alteração do ID_STORY da table Story de Bigint para Integer Autoincrement.
+32 - Alteração do ID_STORY da table Story de Bigint para Integer Autoincrement;
+
+33 - Criação da Table Comments.
