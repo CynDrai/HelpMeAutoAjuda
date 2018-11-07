@@ -1,6 +1,7 @@
 package com.example.felipesavaris.helpmeautoajuda;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +9,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.felipesavaris.helpmeautoajuda.Adapter.Comments.ListCommentsAdapter;
+import com.example.felipesavaris.helpmeautoajuda.DAO.CommentDAO;
+import com.example.felipesavaris.helpmeautoajuda.Model.Comment;
 import com.example.felipesavaris.helpmeautoajuda.Model.Story;
 import com.example.felipesavaris.helpmeautoajuda.logicMethods.CommentsMethods;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommentsActivity extends AppCompatActivity {
 
@@ -43,6 +50,11 @@ public class CommentsActivity extends AppCompatActivity {
         //Set da Story
         this.tvStory = findViewById(R.id.tvStory);
         this.tvStory.setText(this.story.getStory());
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Comentários");
+
+        loadComments();
     }
 
     //Botão Enviar Comment
@@ -61,11 +73,36 @@ public class CommentsActivity extends AppCompatActivity {
         );
 
         if(boo) {
-            //Reinicia a Activity
-            Intent it = getIntent();
-            it.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            finish();
-            startActivity(it);
+            this.edCommentText.setText("");
+            loadComments();
         }
+    }
+
+    public void loadComments() {
+
+        //Lista de Comments
+        CommentDAO dao = new CommentDAO();
+        List lstComments =
+                new ArrayList<Comment>(
+                        dao.selectComments(
+                                this,
+                                this.story.getId_story()
+                        )
+                );
+
+        //Adapter do ListView
+        ListCommentsAdapter adapter =
+                new ListCommentsAdapter(
+                        this,
+                        lstComments
+                );
+
+        //Inicialização do ListView
+        this.lvComments = findViewById(R.id.lvComments);
+
+        //Set Adapter no ListView
+        this.lvComments.setAdapter(adapter);
+
+        adapter.notifyDataSetChanged();
     }
 }

@@ -44,7 +44,6 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
         if(oldVersion < 29) {
 
-
             db.execSQL("drop table if exists usuario");
             db.execSQL("drop table if exists professional");
             db.execSQL("drop table if exists categoria");
@@ -77,7 +76,7 @@ public class dbHMAAOpenHelper  extends SQLiteOpenHelper {
 
         }
 
-        if(oldVersion < newVersion) {
+        if(oldVersion < 33) {
 
             ScriptDDL ddl = new ScriptDDL();
 
