@@ -45,6 +45,7 @@
         android:layout_below="@+id/lvComments"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-51dp"
-        android:text="@string/enviar" />
+        android:text="@string/enviar"
+        android:onClick="btSendComment"/>
 
 </RelativeLayout>

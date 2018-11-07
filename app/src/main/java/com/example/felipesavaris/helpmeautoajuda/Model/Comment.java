@@ -1,11 +1,19 @@
 package com.example.felipesavaris.helpmeautoajuda.Model;
 
-public class Story {
+public class Comment {
 
+    private int id_comment;
     private int id_story;
     private long id_usuario;
-    private int id_categoria;
-    private String story;
+    private String comment;
+
+    public int getId_comment() {
+        return id_comment;
+    }
+
+    public void setId_comment(int id_comment) {
+        this.id_comment = id_comment;
+    }
 
     public int getId_story() {
         return id_story;
@@ -16,26 +24,18 @@ public class Story {
     }
 
     public long getId_usuario() {
-        return id_usuario;
+        return this.id_usuario;
     }
 
     public void setId_usuario(long id_usuario) {
         this.id_usuario = id_usuario;
     }
 
-    public int getId_categoria() {
-        return id_categoria;
+    public String getComment() {
+        return comment;
     }
 
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
-    }
-
-    public String getStory() {
-        return story;
-    }
-
-    public void setStory(String story) {
-        this.story = story;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
