@@ -27,4 +27,8 @@
     <string name="serial">Serial</string>
     <string name="enterSerial">Entrar código serial</string>
     <string name="salvar">Salvar</string>
+    <string name="msgStories">Escreva aqui seu Relato</string>
+    <string name="story">Relato</string>
+    <string name="saveStories">Salvar Relato</string>
+    <string name="enviar">Enviar</string>
 </resources>

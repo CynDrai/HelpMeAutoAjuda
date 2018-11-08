@@ -25,4 +25,14 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 26 - Criação da Table Categoria_Professional N..N;
 
-27-28 - Correção do Banco colocando as categorias.
+27-28 - Correção do Banco colocando as categorias;
+
+29 - Reset dadis Banco de Dados;
+
+30 - Criação da Table Story;
+
+31 - Correção Table Story;
+
+32 - Alteração do ID_STORY da table Story de Bigint para Integer Autoincrement;
+
+33 - Criação da Table Comments.

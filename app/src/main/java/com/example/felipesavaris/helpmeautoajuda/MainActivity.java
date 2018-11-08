@@ -27,16 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    //Botão Login
-    @TargetApi(Build.VERSION_CODES.N)
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public void loginBt(View view) {
-
-        //Inicialização dos EditText
-        this.edEmailUsuario = (EditText) findViewById(R.id.edEmailUsuario);
-        this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
 
         //Checa se o sistema já tem a permissão
         int permission = ContextCompat.checkSelfPermission(
@@ -51,44 +41,64 @@ public class MainActivity extends AppCompatActivity {
                     REQUEST_PERMISSIONS_CODE
             );
         }
+    }
 
-        //Se houver a permissão, o backup será realizado
-        if(permission == 0) {
-            //Backup Banco de Dados
-            BackupDatabase.backupDatabase(this);
-        }
+    //Botão Login
+    @TargetApi(Build.VERSION_CODES.N)
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public void loginBt(View view) {
+
+        //Inicialização dos EditText
+        this.edEmailUsuario = (EditText) findViewById(R.id.edEmailUsuario);
+        this.edSenhaUsuario = (EditText) findViewById(R.id.edSenhaUsuario);
+
+        LoginMethods loginMethods = new LoginMethods();
 
         //Dados do usuário após Login bem sucedido
-        Usuario.setUsuarioUnico(LoginMethods.loginAccount(
+        Usuario.setUsuarioUnico(loginMethods.loginAccount(
                 this,
                 this.edEmailUsuario.getText().toString(),
                 this.edSenhaUsuario.getText().toString())
         );
 
+        //Checa se o sistema já tem a permissão
+        int permission = ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        );
+
         //Caso o Login seja do Usuário
         if (Usuario.getUsuarioUnico() != null) {
+
+            //Se houver a permissão, o backup será realizado
+            if(permission == 0) {
+                //Backup Banco de Dados
+                BackupDatabase.backupDatabase(this);
+            }
 
             //Mudança de Activity --> CategoriaActivity
             Intent it = new Intent(
                     this,
                     CategoriaActivity.class
             );
-
             startActivity(it);
-
         }
 
         //Caso o Login seja do Profissional
         if(Professional.getProfessionalUnico() != null) {
+
+            //Se houver a permissão, o backup será realizado
+            if(permission == 0) {
+                //Backup Banco de Dados
+                BackupDatabase.backupDatabase(this);
+            }
 
             //Mudança de Activity --> ProfessionalActivity
             Intent it = new Intent(
                       this,
                     ProfessionalActivity.class
             );
-
             startActivity(it);
-
         }
     }
 
@@ -100,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 CadastroActivity.class
         );
-
         startActivity(it);
     }
 }
