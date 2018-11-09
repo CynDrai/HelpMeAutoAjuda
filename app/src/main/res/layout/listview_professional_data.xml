@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@drawable/bg13">
+    android:background="#c1e0b8">
 
     <TextView
         android:id="@+id/tvNameLabel"
