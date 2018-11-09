@@ -35,4 +35,8 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 32 - Alteração do ID_STORY da table Story de Bigint para Integer Autoincrement;
 
-33 - Criação da Table Comments.
+33 - Criação da Table Comments;
+
+34 - Correção da Table Categoria - Faltava um Categoria em dbHMAAOpenHelper.java;
+
+35 - Insert para Aprensentação em Aula.
