@@ -39,13 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-<<<<<<< HEAD
         android:text="@string/ajuda"
-        android:background="@drawable/buttonsstyleselector"/>
-=======
         android:onClick="btCallProfessional"
-        android:text="@string/ajuda"/>
->>>>>>> 8c1501d5bdddf8cb867d9d8ed2d28024033034fd
+        android:background="@drawable/buttonsstyleselector"/>
+
 
     <TextView
         android:layout_width="180dp"
