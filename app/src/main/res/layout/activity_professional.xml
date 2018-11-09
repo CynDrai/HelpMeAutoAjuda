@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfessionalActivity">
+    tools:context=".ProfessionalActivity"
+    android:background="@drawable/bg13">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,9 +24,12 @@
     </ListView>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="550dp"
         android:layout_height="wrap_content"
+        android:onClick="btGoToCategoryProfessional"
         android:text="@string/category"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/buttonsstyleselector"
+        />
 
 </RelativeLayout>

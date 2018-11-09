@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CommentsActivity">
+    tools:context=".CommentsActivity"
+    android:background="@drawable/bg13">
 
     <TextView
         android:id="@+id/tvUserStory"
@@ -46,6 +47,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-51dp"
         android:text="@string/enviar"
-        android:onClick="btSendComment"/>
+        android:onClick="btSendComment"
+        android:background="@drawable/buttonsstyleselector"/>
 
 </RelativeLayout>

@@ -6,71 +6,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/bg2">
+    android:background="@drawable/bg13"
+    >
 
+
+    <ImageView
+        android:layout_width="1500dp"
+        android:layout_height="190dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo" />
 
     <LinearLayout
-        android:paddingTop="170dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:paddingTop="240dp">
 
 
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="-100dp"
-            android:layout_marginLeft="135dp"
-            android:src="@drawable/testelogo2" />
 
         <EditText
             android:id="@+id/edEmailUsuario"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="E-Mail"
+            android:background="@drawable/edittextstyle"
+            android:hint="  E-mail"
             android:inputType="textEmailAddress"
-            android:background="@drawable/edittextstyle"/>
+            android:theme="@style/Login"
+            android:textSize="20dp"
+            style="@style/ColorText"/>
 
         <EditText
             android:id="@+id/edSenhaUsuario"
-            android:layout_marginTop="10dp"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="Senha"
-            android:inputType="textPassword"
+            android:layout_marginTop="10dp"
             android:background="@drawable/edittextstyle"
+            android:hint="  Senha"
+            android:textSize="20dp"
+            android:inputType="textPassword"
+            style="@style/ColorText"
             />
 
         <Button
             android:id="@+id/btLogin"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/buttonsstyleselector"
             android:onClick="loginBt"
             android:text="@string/login"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="70dp"
-            android:background="@drawable/buttonsstyleselector"
-            android:textColor="#ffff"
-            android:layout_marginTop="15dp"/>
+            android:textColor="#ffff" />
 
         <Button
             android:id="@+id/btCadastro"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/buttonsstyleselector"
             android:onClick="cadastroBt"
             android:text="@string/cadastro"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="-60dp"
-            android:background="@drawable/buttonsstyleselector"
-            android:textColor="#ffff"/>
+            android:textColor="#ffff" />
 
     </LinearLayout>
 </RelativeLayout>

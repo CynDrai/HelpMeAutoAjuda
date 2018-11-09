@@ -5,43 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".selectedCategoriaActivity">
+    tools:context=".selectedCategoriaActivity"
+    android:background="@drawable/bg13">
 
     <ListView
         android:id="@+id/lstRelatos"
         android:layout_width="match_parent"
-        android:layout_height="428dp">
+        android:layout_height="428dp"
+        android:textColor="#181918">
 
     </ListView>
 
     <Button
         android:id="@+id/btRelato"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:onClick="btRegisterStories"
-        android:text="@string/relato"/>
+        android:text="@string/relato"
+        android:background="@drawable/buttonsstyleselector"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btRelato"
-        android:text="Deixar relato?"/>
+        android:text="Deixar relato?"
+        android:textSize="15dp"
+        android:textColor="#000000"/>
 
     <Button
         android:id="@+id/btProf"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="@string/ajuda"/>
+        android:text="@string/ajuda"
+        android:onClick="btCallProfessional"
+        android:background="@drawable/buttonsstyleselector"/>
+
 
     <TextView
-        android:layout_width="89dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btProf"
         android:layout_alignParentRight="true"
-        android:text="Chamar Ajuda Profissional?" />
+        android:text="Chamar Ajuda Profissional?"
+        android:textSize="14dp"
+        android:textColor="#000000"/>
 
 </RelativeLayout>

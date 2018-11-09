@@ -3,12 +3,14 @@ package com.example.felipesavaris.helpmeautoajuda;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.felipesavaris.helpmeautoajuda.Adapter.CategoriesProfessional.ListCategoryAdapter;
 import com.example.felipesavaris.helpmeautoajuda.DAO.CategoryDAO;
 import com.example.felipesavaris.helpmeautoajuda.Model.Categoria;
 import com.example.felipesavaris.helpmeautoajuda.Model.Professional;
+import com.example.felipesavaris.helpmeautoajuda.Util.ToastMakeText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,14 @@ public class ProfessionalActivity extends AppCompatActivity {
         }
 
         super.onBackPressed();
+    }
+
+    //Botão Categorias
+    public void btGoToCategoryProfessional(View view) {
+        ToastMakeText.makeText(
+                this,
+                "Função não suportada"
+        );
     }
 
     private void loadCategories() {

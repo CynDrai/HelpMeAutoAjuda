@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#c1e0b8">
+
+    <TextView
+        android:id="@+id/tvNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Name: "
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvNameProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Name Professional"
+        android:layout_toEndOf="@+id/tvNameLabel"/>
+
+    <TextView
+        android:id="@+id/tvNameFicLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Name Fictional: "
+        android:textStyle="bold"
+        android:layout_below="@+id/tvNameProfessional"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvNameFictional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Name Fictional"
+        android:layout_alignTop="@+id/tvNameFicLabel"
+        android:layout_toEndOf="@+id/tvNameFicLabel"/>
+
+    <TextView
+        android:id="@+id/tvEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Email: "
+        android:textStyle="bold"
+        android:layout_below="@+id/tvNameFictional"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvEmailProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Email"
+        android:layout_toEndOf="@id/tvEmailLabel"
+        android:layout_alignTop="@+id/tvEmailLabel"/>
+
+    <TextView
+        android:id="@+id/tvCpfLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example CPF: "
+        android:textStyle="bold"
+        android:layout_below="@+id/tvEmailProfessional"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvCpfProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Cpf"
+        android:layout_toEndOf="@id/tvCpfLabel"
+        android:layout_alignTop="@id/tvCpfLabel"/>
+
+    <TextView
+        android:id="@+id/tvCnpjLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example CNPJ: "
+        android:textStyle="bold"
+        android:layout_below="@+id/tvCpfLabel"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvCnpjProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Cnpj"
+        android:layout_toEndOf="@id/tvCnpjLabel"
+        android:layout_alignTop="@id/tvCnpjLabel"/>
+
+    <TextView
+        android:id="@+id/tvAddressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Address: "
+        android:textStyle="bold"
+        android:layout_below="@+id/tvCnpjLabel"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvAddressProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Address"
+        android:layout_toEndOf="@id/tvAddressLabel"
+        android:layout_alignTop="@id/tvAddressLabel"/>
+
+    <TextView
+        android:id="@+id/tvFoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Fone: "
+        android:textStyle="bold"
+        android:layout_below="@+id/tvAddressLabel"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/tvFoneProfessional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Example Fone"
+        android:layout_toEndOf="@+id/tvFoneLabel"
+        android:layout_alignTop="@+id/tvFoneLabel"/>
+
+</RelativeLayout>

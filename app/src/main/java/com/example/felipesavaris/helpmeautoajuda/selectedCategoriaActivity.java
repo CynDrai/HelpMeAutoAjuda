@@ -52,6 +52,18 @@ public class selectedCategoriaActivity extends AppCompatActivity {
         startActivity(it);
     }
 
+    //Botão Chamar Profissional
+    public void btCallProfessional(View view) {
+
+        //Mudança de Activity -> ProfessionalDataActivity
+        Intent it = new Intent(
+                this,
+                ProfessionalDataActivity.class
+        );
+        startActivity(it);
+
+    }
+
     public void loadStories() {
 
         //Lista de Stories

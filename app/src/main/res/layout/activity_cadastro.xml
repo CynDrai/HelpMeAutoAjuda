@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CadastroActivity">
+    tools:context=".CadastroActivity"
+    android:background="@drawable/bg13"
+    >
 
     <TextView
         android:id="@+id/txEmail_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        style="@style/ColorallText"/>
 
     <EditText
         android:id="@+id/edEmail"
@@ -20,7 +23,9 @@
         android:layout_height="wrap_content"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:layout_below="@+id/txEmail_1" />
+        android:layout_below="@+id/txEmail_1"
+        style="@style/ColorallText"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/txnomeUsuario_0"
@@ -28,14 +33,17 @@
         android:layout_height="wrap_content"
         android:text="@string/usr"
         android:textSize="15dp"
-        android:layout_below="@+id/edEmail"/>
+        android:layout_below="@+id/edEmail"
+        style="@style/ColorallText"/>
 
     <EditText
         android:id="@+id/edNameUsr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/usr"
-        android:layout_below="@+id/txnomeUsuario_0" />
+        android:layout_below="@+id/txnomeUsuario_0"
+        style="@style/ColorallText"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/txNomeFantasia_0"
@@ -43,14 +51,17 @@
         android:layout_height="wrap_content"
         android:text="Nome Fantasia(Opcional)"
         android:textSize="15dp"
-        android:layout_below="@+id/edNameUsr"/>
+        android:layout_below="@+id/edNameUsr"
+        style="@style/ColorallText"/>
 
     <EditText
         android:id="@+id/edNameFan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nomeFantasia"
-        android:layout_below="@+id/txNomeFantasia_0" />
+        android:layout_below="@+id/txNomeFantasia_0"
+        style="@style/ColorallText"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/txSenha_1"
@@ -58,7 +69,8 @@
         android:layout_height="wrap_content"
         android:text="@string/senha"
         android:textSize="15dp"
-        android:layout_below="@+id/edNameFan" />
+        android:layout_below="@+id/edNameFan"
+        style="@style/ColorallText"/>
 
     <EditText
         android:id="@+id/edSenhaUsuario"
@@ -66,15 +78,19 @@
         android:layout_height="wrap_content"
         android:hint="@string/senha"
         android:layout_below="@+id/txSenha_1"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        style="@style/ColorallText"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/btCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
         android:onClick="cadastroBt"
         android:text="@string/cadastrar"
-        android:layout_below="@+id/edSenhaUsuario"/>
+        android:layout_below="@+id/edSenhaUsuario"
+        android:background="@drawable/buttonsstyleselector"
+        android:layout_marginLeft="90dp"/>
 
     <EditText
         android:id="@+id/edSerialProfessional"
@@ -84,7 +100,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="52dp"
-        android:hint="@string/serial" />
+        android:hint="@string/serial"
+        android:textSize="18dp"
+        style="@style/ColorallText"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -93,12 +111,14 @@
         android:layout_above="@+id/edSerialProfessional"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/edSerialProfessional"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="-52dp"
+        android:layout_marginTop="-42dp"
+        android:layout_marginLeft="60dp"
         android:onClick="serialBt"
-        android:text="@string/enterSerial" />
+        android:text="@string/enterSerial"
+        android:background="@drawable/buttonsstyleselector"/>
 
 </RelativeLayout>

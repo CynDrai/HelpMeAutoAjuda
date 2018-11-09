@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroProfessionalActivity">
+    tools:context=".CadastroProfessionalActivity"
+    android:background="@drawable/bg13">
 
     <EditText
         android:id="@+id/edEmailProfessional"
@@ -64,10 +65,13 @@
         android:layout_below="@+id/fone"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:onClick="cadastroProfessionalBt"
-        android:text="@string/cadastrar" />
+        android:text="@string/cadastrar"
+        android:background="@drawable/buttonsstyleselector"
+        android:layout_marginLeft="110dp"
+        android:layout_marginBottom="50dp"/>
 
 </RelativeLayout>
