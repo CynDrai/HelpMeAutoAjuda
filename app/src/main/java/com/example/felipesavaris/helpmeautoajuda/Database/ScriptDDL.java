@@ -98,4 +98,22 @@ public class ScriptDDL {
 
         return sql;
     }
+
+    //Criação da Table Comments
+    protected String getTableComments() {
+
+        String sql = "";
+
+        sql =  "CREATE TABLE IF NOT EXISTS COMMENTS(";
+        sql += "ID_COMMENT                      INTEGER                         PRIMARY KEY AUTOINCREMENT NOT NULL,";
+        sql += "ID_STORY                        INTEGER                         NOT NULL,";
+        sql += "ID_USUARIO                      BIGINT                          NOT NULL,";
+        sql += "COMMENT                         VARCHAR(600)                    NOT NULL,";
+        sql += "CONSTRAINT                      FK_COMMENT_STORY                FOREIGN KEY(ID_STORY)";
+        sql +=      "REFERENCES     STORY(ID_STORY),";
+        sql += "CONSTRAINT                      FK_COMMENT_USER                 FOREIGN KEY(ID_USUARIO)";
+        sql +=      "REFERENCES     USUARIO(ID_USUARIO)); ";
+
+        return sql;
+    }
 }
