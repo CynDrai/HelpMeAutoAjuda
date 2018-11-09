@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_width="385dp"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@drawable/greenbg2"
+    >
 
     <TextView
         android:id="@+id/tvUserComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Example Name"/>
+        android:layout_width="500dp"
+        android:layout_height="20dp"
+        android:text="Example Name"
+        style="@style/ColorWText"
+        />
 
     <TextView
         android:id="@+id/tvComment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="500dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/tvUserComment"
         android:textSize="17sp"
-        android:text="Example Comment"/>
+        android:text="Example Comment"
+        style="@style/ColorWText"
+        />
 
 </RelativeLayout>
