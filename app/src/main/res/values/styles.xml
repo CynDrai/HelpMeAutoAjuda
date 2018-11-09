@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Login">
+        <item name="colorControlNormal">#ff0000</item>
+        <item name="colorControlActivated">#00ff00</item>
+        <item name="colorControlHighlight">@color/accent_material_light</item>
+    </style>
+
 </resources>
