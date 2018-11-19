@@ -82,7 +82,7 @@ public class ListStoriesAdapter extends BaseAdapter {
         HOLDER.tvStory.setText(STORY.getStory());
 
         //Quando o Item do ListView for Selecionado
-        HOLDER.tvStory.setOnClickListener(new View.OnClickListener() {
+        convertView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

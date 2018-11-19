@@ -39,4 +39,6 @@ SEMPRE QUE ALTERADO, DEVERÁ SER INFORMADO AQUI COM AS MUDANÇAS:
 
 34 - Correção da Table Categoria - Faltava um Categoria em dbHMAAOpenHelper.java;
 
-35 - Insert para Aprensentação em Aula.
+35 - Insert para Aprensentação em Aula;
+
+36 - Reset Database Final.
